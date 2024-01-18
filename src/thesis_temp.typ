@@ -8,6 +8,7 @@
   // set the document's basic properties
   set document(author: authors.map(a => a.name), title: title)
   set page(
+    paper: "a4",
     margin: (left: 25mm, right: 25mm, top: 30mm, bottom: 30mm),
     numbering: "1",
     number-align: center,
