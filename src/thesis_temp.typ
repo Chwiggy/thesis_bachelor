@@ -14,12 +14,13 @@
 
   set page(
     paper: "a4",
-    margin: (left: 25mm, right: 25mm, top: 30mm, bottom: 30mm),
+    margin: (left: 30mm, right: 25mm, top: 30mm, bottom: 30mm),
     numbering: "1",
     number-align: center,
     header: align(
       right,
-      [#locate(
+      [
+        #locate(
         loc => [
           // find first heading of level 1 on current page
           #let first-heading = query(heading.where(level: 1), loc).find(h => h.location().page() == loc.page())
@@ -43,7 +44,8 @@
             [#ht-last.display()]
         }}
         ]
-      )]
+        )
+      ]
       )
   )
   set text(font: "Linux Libertine", lang: "en")
@@ -64,8 +66,8 @@
   text(1.1em, date)
   v(1.2em, weak: true)
   text(2em, weight: 700, title)
-  v(1em, weak: true)
-  text(2em,weight: 600, subtitle)
+  v(1.5em, weak: true)
+  text(1.2em,weight: 600, subtitle)
 
   //author info
   pad(

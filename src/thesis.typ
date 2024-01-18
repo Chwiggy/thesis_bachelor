@@ -22,15 +22,14 @@ In recent years, but for decades by now, the demand for a paradigm shift in tran
 == Related Work
 == Methodological Approach
 == Geographic Case Studies
-
 #pagebreak()
+
 = Closeness or Reachability
 == Closeness Centrality
 == Isochrones as a Measure of Reach
 == Comparison Use Cases
 == Methods
 == Results
-
 #pagebreak()
 
 = Comparisons with Non-Schedule-Based Modes
