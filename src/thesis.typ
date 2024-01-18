@@ -7,7 +7,7 @@
     // TODO add matr number and postal address as secrets
     (name: "Emily C. Wilke",matr: "35xxxxxxxx", email: "emilycwilke@gmail.com", affiliation: "Ruprecht-Karls-Universität Heidelberg", postal: "xxxxxxx"),
   ),
-  date: "2024-01-18",
+  date: [#datetime.today().display()],
 )
 
 // TODO maybe import chapters from separate documents
@@ -58,8 +58,9 @@ In recent years, but for decades by now, the demand for a paradigm shift in tran
 == Results
 == Hub and Spoke Transit Planning
 
-= Results
-
+#pagebreak()
+= Recap of Results
+#pagebreak()
 = Discussion
 == General Limitations
 - Lack of real world measures as Comparisons
