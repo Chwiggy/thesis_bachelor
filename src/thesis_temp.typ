@@ -1,5 +1,6 @@
 #let project(
     title: "",
+    subtitle: "",
     authors: (),
     date: none,
     logo: none,
@@ -31,6 +32,8 @@
   text(1.1em, date)
   v(1.2em, weak: true)
   text(2em, weight: 700, title)
+  v(1em, weak: true)
+  text(2em,weight: 600, subtitle)
 
   //author info
   pad(
@@ -41,6 +44,7 @@
       gutter: 1em,
       ..authors.map(author => align(start)[
         *#author.name* \
+        #author.matr \
         #author.email \
         #author.affiliation \
         #author.postal
