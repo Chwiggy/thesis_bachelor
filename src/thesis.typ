@@ -26,20 +26,48 @@ Benefits of
 - Traditional transport planning centering on men?
   - German Transport Planning post world war 2?
 - Transit planning and identifying demand in public transit networks is a complicated process, that takes into account a plethora of data that's hard to access or acquire @pieper_kreislauf_2021.
+  - statistical routing data based on conveyal engine @conway_evidencetransit
 === Research Question
 - How can an easy closenes centrality measure help asses transit service availability and equality
   
 == Related Work
+- Network Centrality Measures
+  - road networks
+  - public transit networks
+  - bipartite networks
+- Transit Equity Studies
+  - US
+  - Network Planning @pieper_kreislauf_2021
 == Methodological Approach
+=== Data Acquisition
+- explorative data analysis
+==== Transport Data
+- osm files from geofabrik @geofabrik_gmbh_geofabrik_2018
+- gtfs files from various transit companies @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 @delfi_deutschlandweite_2023 vrs
+==== Destinations
+- Usage of openly available data, preferably from osm ..
+- specific data if necessary, eg @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016
+=== Data Processing
+  - Isochrones
+    - available from openrouteservice @heigit_openrouteservice_2023, as used in @prayogi_openrouteservice_2022, not used because:
+  - travel time matrices
+    - enough for basic reach analyses, isochrone itself not important
+    - calculated with r5py @r5py as used in @tenkanen_longitudinal_2020, based on the conveyal engine @conway_evidencetransit @Conway_uncertainty_2018
 == Geographic Case Studies
 - Selected based on data availability, personal familiarity.
 #pagebreak()
 
 = Closeness or Reachability
 == Closeness Centrality
-== Isochrones as a Measure of Reach
+== Reach
+  === Isochrones as a Measure of Reach
 == Comparison Use Cases
 == Methods
+=== Available Data
+- school data from @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016
+- sports data from osm
+=== Processing
+
 == Results
 #pagebreak()
 
@@ -74,8 +102,10 @@ Benefits of
 = Discussion
 == General Limitations
 - Lack of real world measures as Comparisons
-- Lack of reliability Data
-- Lack of delay data
+- Focuses solely on door to door travel times and neglects
+  - reliability Data
+  - delay data both for cars and public transit
+  - public transit fare structures @conway_off_the_mta
 - _inequality_ being silly at times @graeber_dawn_2022.
 
 #pagebreak()
