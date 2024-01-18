@@ -8,11 +8,43 @@
 ) = {
   // set the document's basic properties
   set document(author: authors.map(a => a.name), title: title)
+  
+  let ht-first = state("page-first-section", [])
+  let ht-last = state("page-last-section", [])
+
   set page(
     paper: "a4",
     margin: (left: 25mm, right: 25mm, top: 30mm, bottom: 30mm),
     numbering: "1",
     number-align: center,
+    header: align(
+      right,
+      [#locate(
+        loc => [
+          // find first heading of level 1 on current page
+          #let first-heading = query(heading.where(level: 1), loc).find(h => h.location().page() == loc.page())
+          #let last-heading =  query(heading.where(level: 1), loc).rev().find(h => h.location().page() == loc.page())
+          #{
+            if not first-heading == none {
+              ht-first.update([
+                  // change style here if update needed section per section
+                  (#counter(heading).at(first-heading.location()).at(0)) #first-heading.body
+              ])
+              ht-last.update([
+                  // change style here if update needed section per section
+                  (#counter(heading).at(last-heading.location()).at(0)) #last-heading.body
+              ])
+            // if one or more headings on the page, use first heading
+            // change style here if update needed page per page
+            [#ht-first.display()]
+        } else {
+            // no headings on the page, use last heading from variable
+            // change style here if update needed page per page
+            [#ht-last.display()]
+        }}
+        ]
+      ),]
+      )
   )
   set text(font: "Linux Libertine", lang: "en")
 
