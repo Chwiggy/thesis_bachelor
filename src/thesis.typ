@@ -64,6 +64,8 @@ In recent years, but for decades by now, the demand for a paradigm shift in tran
 = Discussion
 == General Limitations
 - Lack of real world measures as Comparisons
+- Lack of reliability Data
+- Lack of delay data
 - _inequality_ being silly at times @graeber_dawn_2022.
 
 #pagebreak()

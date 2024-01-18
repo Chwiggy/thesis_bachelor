@@ -43,7 +43,7 @@
             [#ht-last.display()]
         }}
         ]
-      ),]
+      )]
       )
   )
   set text(font: "Linux Libertine", lang: "en")
