@@ -19,7 +19,9 @@ With increased awareness and concrete experiences of climate change this discour
 Benefits of 
 
 
-== Transit Equity and Equality
+== Transit Accesibility Equity and Equality
+=== Terminology
+
 === Motivation
 - Traditional transport planning centering on men?
   - German Transport Planning post world war 2?
@@ -30,6 +32,7 @@ Benefits of
 == Related Work
 == Methodological Approach
 == Geographic Case Studies
+- Selected based on data availability, personal familiarity.
 #pagebreak()
 
 = Closeness or Reachability
