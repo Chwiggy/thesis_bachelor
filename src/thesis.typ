@@ -13,9 +13,57 @@
 // TODO maybe import chapters from separate documents
 
 = Introduction
-In recent years, but for decades by now, the demand for a paradigm shift in transportation infrastructure and service has become louder and louder. While calls for a shift away from car centric mobility are nothing new and where a well established part of German Academic discourse in the 1990s already, @frank_hat_1993 it has become part of a widespread political discourse around the so called _Verkehrswende_ @holzapfel_urbanismus_2020. With increased awareness and concrete experiences of climate change this discourse has reached states of heated debate.
+In recent years, but for decades by now, the demand for a paradigm shift in transportation infrastructure and service has become louder and louder. While calls for a shift away from car centric mobility are nothing new and where a well established part of German Academic discourse in the 1990s already, @frank_hat_1993 it has become part of a widespread political discourse around the so called _Verkehrswende_ @holzapfel_urbanismus_2020. With increased awareness and concrete experiences of climate change this discourse has reached states of heated debate. Benefits of 
 
-= Methods
-#lorem(60)
 
+== Transit Equity and Equality
+- How can an easy closenes centrality measure help asses transit service availability and equality
+  
+== Related Work
+== Methodological Approach
+== Geographic Case Studies
+
+#pagebreak()
+= Closeness or Reachability
+== Closeness Centrality
+== Isochrones as a Measure of Reach
+== Comparison Use Cases
+== Methods
+== Results
+
+#pagebreak()
+
+= Comparisons with Non-Schedule-Based Modes
+== Cycling
+=== Methods
+=== Results
+== Cars
+=== Methods
+- added parking times
+=== Results
+== Temporal Discrepancies with Scheduled Transit
+== Limitations
+- limitations to car traffic estimations
+- limitations to parking times
+
+#pagebreak()
+
+= Distinguishing Transit Footprints
+== Historical Urban Blueprints
+== Radial and Tangential Services
+== Methods
+=== Visual Differences
+=== Inequality Measures
+- Lorenz Curves and Gini Coefficients being silly sometimes @graeber_dawn_2022
+== Results
+== Hub and Spoke Transit Planning
+
+= Results
+
+= Discussion
+== General Limitations
+- Lack of real world measures as Comparisons
+- _inequality_ being silly at times @graeber_dawn_2022.
+
+#pagebreak()
 #bibliography("2023 BA Thesis.bib", title: auto, style:"ieee")
