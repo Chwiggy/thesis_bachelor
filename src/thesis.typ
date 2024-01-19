@@ -71,8 +71,21 @@ Benefits of
 === Processing
 
 == Results
+=== Temporal Variability
 #pagebreak()
 
+
+= Distinguishing Transit Footprints
+== Historical Urban Blueprints
+== Radial and Tangential Services
+== Methods
+=== Visual Differences
+=== Inequality Measures
+- Lorenz Curves and Gini Coefficients being silly sometimes @graeber_dawn_2022
+== Results
+== Hub and Spoke Transit Planning
+
+#pagebreak()
 = Comparisons with Non-Schedule-Based Modes
 == Cycling
 === Methods
@@ -86,17 +99,6 @@ Benefits of
 - limitations to car traffic estimations
 - limitations to parking times
 
-#pagebreak()
-
-= Distinguishing Transit Footprints
-== Historical Urban Blueprints
-== Radial and Tangential Services
-== Methods
-=== Visual Differences
-=== Inequality Measures
-- Lorenz Curves and Gini Coefficients being silly sometimes @graeber_dawn_2022
-== Results
-== Hub and Spoke Transit Planning
 
 #pagebreak()
 = Recap of Results
