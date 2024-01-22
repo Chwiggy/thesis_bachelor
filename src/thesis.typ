@@ -46,7 +46,7 @@ Benefits of
 - hexgrids from h3pandas // source
 ==== Transport Data
 - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018
-- gtfs files from various transit companies @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 @delfi_deutschlandweite_2023 vrs
+- gtfs files from various transit companies @vrs_soll-fahrplandaten_2023 @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 @delfi_deutschlandweite_2023.
 ==== Destinations
 - Usage of openly available data, preferably from osm .. extracted with pyrosm @tenkanen_pyrosm_2023
 - specific data if necessary, eg secondary school data not mapped in osm @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016
