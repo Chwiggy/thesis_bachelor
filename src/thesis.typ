@@ -38,6 +38,7 @@ Benefits of
 - Transit Equity Studies
   - US
   - Network Planning @pieper_kreislauf_2021
+- Traveltime Datasets such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024 
 == Methodological Approach
 === Data Acquisition
 - explorative data analysis
@@ -62,8 +63,17 @@ Benefits of
 = Closeness or Reachability
 == Closeness Centrality
 == Reach
-  === Isochrones as a Measure of Reach
+=== Isochrones as a Measure of Reach
+- ors @heigit_openrouteservice_2023
+- cummulative or individual accesibility measures from @verduzco_torres_public_2024
+== Temporal Variability
+- conveyal approach @Conway_uncertainty_2018
+  - also used in @verduzco_torres_public_2024 for metrics spanning the UK, but identified gap in temporal variability of transport choices
 == Comparison Use Cases
+=== secondary schools
+- see @verduzco_torres_public_2024
+=== sports clubs
+- osm data
 == Methods
 === Available Data
 - school data from @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016
@@ -71,7 +81,6 @@ Benefits of
 === Processing
 
 == Results
-=== Temporal Variability
 #pagebreak()
 
 
@@ -94,9 +103,9 @@ Benefits of
 === Methods
 - added parking times
 === Results
-== Temporal Discrepancies with Scheduled Transit
 == Limitations
 - limitations to car traffic estimations
+  - temporal variability
 - limitations to parking times
 
 
