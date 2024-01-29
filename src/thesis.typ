@@ -94,7 +94,8 @@ Benefits of
 == Results
 == Hub and Spoke Transit Planning
 
-#pagebreak()
+// optional if there's still time
+/* #pagebreak()
 = Comparisons with Non-Schedule-Based Modes
 == Cycling
 === Methods
@@ -107,7 +108,7 @@ Benefits of
 - limitations to car traffic estimations
   - temporal variability
 - limitations to parking times
-
+ */
 
 #pagebreak()
 = Recap of Results
