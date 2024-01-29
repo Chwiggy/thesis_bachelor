@@ -2,7 +2,7 @@
 
 #show: project.with(
   title: "Simple Open Data Measures of Public Transit Service Availability",
-  subtitle: "Usecases for Closeness Centrality and Isochrones",
+  subtitle: "Temporal Variability",
   authors: (
     // TODO add matr number and postal address as secrets
     (name: "Emily C. Wilke",matr: "35xxxxxxxx", email: "emilycwilke@gmail.com", affiliation: "Ruprecht-Karls-Universität Heidelberg", postal: "xxxxxxx"),
@@ -10,7 +10,12 @@
   date: [#datetime.today().display()],
 )
 
+// TODO insert page for affidavit
 // TODO maybe import chapters from separate documents
+= Abstracts
+== Abstract En
+== Abstract De
+#pagebreak()
 
 = Introduction
   In recent years, but for decades by now, the demand for a paradigm shift in transportation infrastructure and service has become louder and louder.
