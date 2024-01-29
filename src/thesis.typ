@@ -28,7 +28,7 @@ Benefits of
 - Transit planning and identifying demand in public transit networks is a complicated process, that takes into account a plethora of data that's hard to access or acquire @pieper_kreislauf_2021.
   - statistical routing data based on conveyal engine @conway_evidencetransit
 === Research Question
-- How can an easy closenes centrality measure help asses transit service availability and equality
+- How temporal variability in transit accessibility maps on to spatial usage patterns?
   
 == Related Work
 - Network Centrality Measures
@@ -43,7 +43,7 @@ Benefits of
 === Data Acquisition
 - explorative data analysis
 === origins
-- hexgrids from h3pandas // source
+- hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them 
 ==== Transport Data
 - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018
 - gtfs files from various transit companies @vrs_soll-fahrplandaten_2023 @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 @delfi_deutschlandweite_2023.
