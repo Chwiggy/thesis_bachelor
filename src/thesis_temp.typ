@@ -4,6 +4,9 @@
     authors: (),
     date: none,
     logo: none,
+    abstract_en: "",
+    abstract_de: "",
+    bib: "",
     body,
 ) = {
   // set the document's basic properties
@@ -15,7 +18,7 @@
   set page(
     paper: "a4",
     margin: (left: 30mm, right: 25mm, top: 30mm, bottom: 30mm),
-    numbering: "1",
+    numbering: none,
     number-align: center,
     header: align(
       right,
@@ -89,13 +92,37 @@
   v(2.4fr)
   pagebreak()
 
+  set page(numbering: "i")
+  counter(page).update(1)
+  heading([Affidavits], level: 1, numbering: none)
+  pagebreak()
+
+  // abstracts
+  heading([Abstracts], level: 1, numbering: none)
+    heading([English], level: 2, numbering: none, outlined: false)
+      set par(justify: true)
+      abstract_en
+    heading([German], level: 2, numbering: none, outlined: false)
+      set text(lang: "de")
+      abstract_de
+      set text(lang: "en")
+  pagebreak()  
+
   // table of contents
+
   outline(depth: 3, indent: true)
   pagebreak()
 
+
+
   // body
+  set page(numbering: "1")
+  counter(page).update(1)
   set par(justify: true)
 
   body
 
+  
+
 }
+

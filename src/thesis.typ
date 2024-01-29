@@ -8,14 +8,12 @@
     (name: "Emily C. Wilke",matr: "35xxxxxxxx", email: "emilycwilke@gmail.com", affiliation: "Ruprecht-Karls-Universität Heidelberg", postal: "xxxxxxx"),
   ),
   date: [#datetime.today().display()],
+  abstract_en: "",
+  abstract_de: "",
 )
 
 // TODO insert page for affidavit
 // TODO maybe import chapters from separate documents
-= Abstracts
-  == Abstract En
-  == Abstract De
-#pagebreak()
 
 = Introduction
   In recent years, but for decades by now, the demand for a paradigm shift in transportation infrastructure and service has become louder and louder.
@@ -56,12 +54,6 @@
   === Destinations
     - Usage of openly available data, preferably from osm .. extracted with pyrosm @tenkanen_pyrosm_2023
     - specific data if necessary, eg secondary school data not mapped in osm @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016
-  === Data Processing
-    - Isochrones
-      - available from openrouteservice @heigit_openrouteservice_2023, as used in @prayogi_openrouteservice_2022, not used because:
-    - travel time matrices
-      - enough for basic reach analyses, isochrone itself not important
-      - calculated with r5py @r5py as used in @tenkanen_longitudinal_2020, based on the conveyal engine @conway_evidencetransit @Conway_uncertainty_2018
   === Case Studies
     - Selected based on data availability, personal familiarity.
     ==== secondary schools
@@ -84,6 +76,12 @@
       - also used in @verduzco_torres_public_2024 for metrics spanning the UK, but identified gap in temporal variability of transport choices
     - automatic clustering using u-map, pca and k-means
   == Processing
+    === Travel Matrices
+      - enough for basic reach analyses, isochrone itself not important
+      - calculated with r5py @r5py as used in @tenkanen_longitudinal_2020, based on the conveyal engine @conway_evidencetransit @Conway_uncertainty_2018
+    === clustering
+      - Dimensionality reduction PCA or UMAP @mcinnes_umap_2018 based on the maths from @mcinnes_umap_2020
+      - Clustering K-Means or HDBSCAN @mcinnes_hdbscan_2016 based on an algorithm proposed by @campello_density-based_2013
   == Results
 #pagebreak()
 
@@ -133,10 +131,15 @@
   == General Limitations
   - Lack of real world measures as Comparisons
   - Focuses solely on door to door travel times and neglects
-    - reliability Data
-    - delay data both for cars and public transit
+    - reliability and delay Data
     - public transit fare structures @conway_off_the_mta
+  - lacks data including 
+    - comparisons to cars // if chapter on cars gets added this needs removal
+    - ride hailing services see @barajas_not_2021
+    - related on demand services (trial at rohrbach)
   - _inequality_ being silly at times @graeber_dawn_2022.
+  == Methodological short commings
+    - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
   
 #pagebreak()
 
@@ -144,4 +147,5 @@
   == Conclusion
   == Outlook
 #pagebreak()
-#bibliography("2023 BA Thesis.bib", title: auto, style:"ieee")
+
+#bibliography("2023 BA Thesis.bib", title: auto, style: "american-psychological-association")
