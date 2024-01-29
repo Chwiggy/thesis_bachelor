@@ -83,8 +83,12 @@
 - sports data from osm
 === Processing
 
+// only if more chapters follow
+/*
 == Results
 #pagebreak()
+*/
+
 
 // optional if there's still time
 /*
@@ -117,7 +121,8 @@
  #pagebreak()
  */
 
-= Recap of Results
+= Results
+// if there's multiple rounds of results then this becomes a recap
 #pagebreak()
 
 = Discussion
