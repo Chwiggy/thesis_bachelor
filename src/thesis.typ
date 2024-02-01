@@ -32,6 +32,8 @@
         - statistical routing data based on conveyal engine @conway_evidencetransit
     === Research Question
       - How temporal variability in transit accessibility maps on to spatial usage patterns?
+      - are cities really better connected? edge times?
+      - are rural areas always worse off in connections or are there times when it's actual actions?
 
   == Related Work
     - Network Centrality Measures
