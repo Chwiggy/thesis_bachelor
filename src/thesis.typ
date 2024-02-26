@@ -123,7 +123,7 @@
     - lacks data including 
       - comparisons to cars
       - ride hailing services see @barajas_not_2021
-      - related on demand services (trial at rohrbach)
+      - related on demand services (trial at rohrbach and schlierbach)
     - _inequality_ being silly at times @graeber_dawn_2022.
   == Methodological short commings
     - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
@@ -132,6 +132,7 @@
 
 = Final Remarks
   == Conclusion
+    - Well this turned out to be a bit boring ...
   == Outlook
     - implementing a analysis accounting for delay and cancellation data would help to get a better picture of lived realities
     - implementing an analysis for scenarios based on more specific scenarios of day to day life
