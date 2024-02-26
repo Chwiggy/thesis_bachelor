@@ -55,6 +55,12 @@
 
   // paragraph spacing
   show par: set  block(above: 1.2em, below: 1.2em)
+  // caption rules
+  show figure: it => [
+    #block(it.body)
+    #set text (font:"Lato", weight: 400)
+    #block(it.caption)
+  ]
 
   set heading(numbering: "1.1")
   set par(leading: 0.75em)

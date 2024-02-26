@@ -108,10 +108,11 @@
   == Travel Times
     
     === Temporal Variation
-      #figure(image("figures/Heidelberg_TravelTime_MT.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday])
+      #figure(image("figures/Heidelberg_TravelTime_MT.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday]) <daily_travel_time>
   == planning data
     === temporal variation in planning data
-      #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Plot of differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday])
+      #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Plot of differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday]) <funky_differences>
+      - As @funky_differences shows the impact of planning over the course of the day is much more    variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
 
 #pagebreak()
 
