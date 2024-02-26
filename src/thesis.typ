@@ -22,7 +22,7 @@
   Taunted benefits of a modal shift away from individual motorised transit towards public transit include a more efficient transport system both in terms of traffic throughput as well as in terms of energy usage, decreased local pollution @teufel_autoverkehr_1993, and a lessened dependency on cars favouring more healthy modes of transit and more livable environments for humans @rissel_physical_2012 @stevenson_health_2016 @holzapfel_urbanismus_2020.
 
   However appealing these pleas for an improved mobility regime may be, there is a distinct lack of easily accessible tools to measure how well a public transit system is serving its users, and the people who for some reason or another have decided that they will not use it.
-  Public Transit Data beyond planned schedules is often hard to come by, and the often quite complex thoughts that go into service planning remain behind the closed doors of local transit agencies in a lot of cases @pieper_kreislauf_2021.
+  Public Transit Data beyond planned schedules is often hard to come by, and the often quite complex thoughts and models that go into service planning remain behind the closed doors of local transit agencies in a lot of cases @pieper_kreislauf_2021 @karner_assessing_2018.
   One option of addressing this gap is the use of reach data over larger areas to assess the coverage public transit provides for reaching different points of interest hopefully relevant to daily life of potential users e.g. @verduzco_torres_public_2024. These studies are based in schedule data and as in this example several assumptions about public transit usage. One of these assumptions is usually a time of day for travel time calculations, usually something like morning rush hour.
 
   As general traffic volumes change over the course of the day the, so do public transit schedules. This temporal variability in transit accessibility is so far not generally addressed well in the literature and in available data sets @verduzco_torres_public_2024. So I shall make an attempt at addressing this gap.
@@ -33,8 +33,18 @@
     Furthermore, I will give a almost certainly incomplete overview of the landscape of literature and research surrounding this topic. 
     
     === Terminology
-    
-
+      - There are various different, and branching understandings of _access_ and _accessibility_.
+      - // TODO add more understandings of transit accessibility
+      - Especially accesibility often used in the sense of the disabled community @levinson_towards_2020
+      - general measures of access play an important role in empirical studies of transportation systems. There _access_, as opposed to _mobility_, measures the ease of reaching valued destinations @levinson_towards_2020.
+      Specifically in North American literature, spurred by rules of the Federal Transport Administration on transit accessibility studies, there seem to be two general modes of thinking about transit access _Access to Transit_ and _Access with Transit_ @carleton_comparative_2018.
+      Access to transit means that transit itself becomes the target destination of such an access analysis.
+      And while access to transit measures can be as simple as the average proximity to transit stops in an area. These measures however fall short in explaining the mobility decisions in day to day life as they fail to consider desirable destinations @karner_assessing_2018.
+      - This paper takes a geographical view into _access_ and uses it interchangeably with _accessibility_.
+      - This paper also tries to consider access with transit above access to transit.
+      
+      - In the end such analysis aims to show gaps and inequalities in usable access to the transportation system.
+      - Looking specifically at transit time as an impedance or cost factor and it's variability over time.
     === Motivation
       - Traditional transport planning centering on men? // source
         - German Transport Planning post world war 2? // source
@@ -55,16 +65,16 @@
       - Network Planning @pieper_kreislauf_2021
     - Traveltime Datasets such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
   == Methodological Approach
+    - explorative data analysis based on openly available and openly licensed data, with open source software tools
     === Data Acquisition
-      - explorative data analysis
-  === origins
-    - hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them
+    === origins
+      - hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them
     ==== Transport Data
       - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018
       - gtfs files from various transit companies @vrs_soll-fahrplandaten_2023 @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 @delfi_deutschlandweite_2023.
     ==== Population Data
   === Destinations
-    - Usage of openly available data, preferably from osm .. extracted with pyrosm @tenkanen_pyrosm_2023
+    - Usage of openly available data, preferably from osm ... extracted with pyrosm @tenkanen_pyrosm_2023
     - specific, eg secondary school data not mapped in osm @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016, was deemed out of scope for this analysis
   === Case Studies
     - Selected based on data availability, personal familiarity: Heidelberg
@@ -83,6 +93,8 @@
       - ors @heigit_openrouteservice_2023
       - cummulative or individual accesibility measures from @verduzco_torres_public_2024
     === Mean Travel Time
+      - active measure of reach, that is I measure how easy or hard it may be to move from one cell to another, as oppossed how easy it is for a cell to be reached @levinson_towards_2020.
+      - travel time as a common cost measure for transit accessibility
   == Temporal Variability
     - conveyal approach @Conway_uncertainty_2018
       - also used in @verduzco_torres_public_2024 for metrics spanning the UK, but identified gap in temporal variability of transport choices
@@ -108,18 +120,23 @@
   == Travel Times
     
     === Temporal Variation
-      #figure(image("figures/Heidelberg_TravelTime_MT.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday]) <daily_travel_time>
+      #figure(image("figures/Heidelberg_TravelTime_MT.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <daily_travel_time>
+      - Night time travel in @daily_travel_time shows a consistent travel time spread. Around 4 am in the morning this fans out however, and while a majority of cells have faster connections a small part actually have longer average median travel times.
+      - Outlier one cell on the eastern station throat of RH with no connections to any other cells and therefore an average travel time of 0 minutes.
   == planning data
     === temporal variation in planning data
-      #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Plot of differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday]) <funky_differences>
+      #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Plot of differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
       - As @funky_differences shows the impact of planning over the course of the day is much more    variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
 
 #pagebreak()
 
 = Discussion
-  - temporal variations and clustering
-  - planning data
-  - temporal variation in planning data
+  == temporal variations and clustering
+    - as expected more central places within the city boundaries also feature lower average travel times throughout the day.
+    - this accessibility measure only considers other populated cells, and assumes a scenario in which destinations such as friends and other people are of interest. It does not distinguish between the impact of the spatial population distribution and the impact of the specific public transit network however (compare @levinson_towards_2020).
+    Travel time here is assumed to be an objective cost measure, @levinson_towards_2020 however suggests that percieved travel time might substantially vary from the objectively needed travel time. And even hypothetical travelers with objective time perception have different ideas about the cost a certain travel time entails based on the mode of transit. That is they may have preferences on where and how they like to spend their travel time. This may go so far as taking objectively worse routes to reach their destinations to avoid wait times at interchanges. //source?
+  == planning data
+  == temporal variation in planning data
   == General Limitations
     - Lack of real world measures as Comparisons
     - special point of interests like school data
@@ -145,4 +162,4 @@
     - planning data can be helpful for planning new services, including needed night services, or stops
 #pagebreak()
 
-#bibliography("2023 BA Thesis.bib", title: auto, style: "american-psychological-association")
+#bibliography("2023 BA Thesis.bib", title: auto, style: "ieee")

@@ -51,19 +51,25 @@
       ]
       )
   )
-  set text(font: "Linux Libertine", lang: "en")
+  set text(font: "Crimson Text", lang: "en", size: 12pt)
 
   // paragraph spacing
   show par: set  block(above: 1.2em, below: 1.2em)
+  
   // caption rules
   show figure: it => [
     #block(it.body)
     #set text (font:"Atkinson Hyperlegible", weight: "bold", size: 10pt)
-    #pad(bottom: 0.75em, block(it.caption))
+    #pad(
+      bottom: 0.75em,
+      left: 2em,
+      right: 2em,
+      block(it.caption))
   ]
 
   set heading(numbering: "1.1")
-  set par(leading: 0.75em)
+  show par: set block(spacing: 0.65em)
+  set par(leading: 1em)
 
   // title page
   v(0.6fr)
@@ -124,7 +130,7 @@
   // body
   set page(numbering: "1")
   counter(page).update(1)
-  set par(justify: true)
+  set par(justify: true, first-line-indent: 1em)
 
   body
 
