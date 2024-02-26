@@ -105,9 +105,14 @@
 #pagebreak()
 
 = Results
-  - temporal variation
-  - planning data
-  - temporal variation in planning data
+  == Travel Times
+    
+    === Temporal Variation
+      #figure(image("figures/Heidelberg_TravelTime_MT.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday])
+  == planning data
+    === temporal variation in planning data
+      #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Plot of differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday])
+
 #pagebreak()
 
 = Discussion
