@@ -58,8 +58,8 @@
   // caption rules
   show figure: it => [
     #block(it.body)
-    #set text (font:"Lato", weight: 400)
-    #block(it.caption)
+    #set text (font:"Atkinson Hyperlegible", weight: "bold", size: 10pt)
+    #pad(bottom: 0.75em, block(it.caption))
   ]
 
   set heading(numbering: "1.1")
