@@ -65,9 +65,9 @@
     ==== Population Data
   === Destinations
     - Usage of openly available data, preferably from osm .. extracted with pyrosm @tenkanen_pyrosm_2023
-    - specific data if necessary, eg secondary school data not mapped in osm @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016
+    - specific, eg secondary school data not mapped in osm @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016, was deemed out of scope for this analysis
   === Case Studies
-    - Selected based on data availability, personal familiarity.
+    - Selected based on data availability, personal familiarity: Heidelberg
     ==== secondary schools
       - see @verduzco_torres_public_2024
       - data from @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016
@@ -104,52 +104,27 @@
   == Results
 #pagebreak()
 
-// optional if there's still time
-/*
-= Distinguishing Transit Footprints
-  == Historical Urban Blueprints
-  == Radial and Tangential Services
-  == Methods
-    === Visual Differences
-    === Inequality Measures
-      - Lorenz Curves and Gini Coefficients being silly sometimes @graeber_dawn_2022
-  == Results
-  == Hub and Spoke Transit Planning
-#pagebreak()
-*/
-
-// optional if there's still time
-/*
-= Comparisons with Non-Schedule-Based Modes
-  == Cycling
-    === Methods
-    === Results
-  == Cars
-    === Methods
-      - added parking times
-    === Results
-  == Limitations
-    - limitations to car traffic estimations
-      - temporal variability
-    - limitations to parking times
- #pagebreak()
- */
-
 = Results
-  // if there's multiple rounds of results then this becomes a recap
+  - temporal variation
+  - planning data
+  - temporal variation in planning data
 #pagebreak()
 
 = Discussion
+  - temporal variations and clustering
+  - planning data
+  - temporal variation in planning data
   == General Limitations
-  - Lack of real world measures as Comparisons
-  - Focuses solely on door to door travel times and neglects
-    - reliability and delay Data
-    - public transit fare structures @conway_off_the_mta
-  - lacks data including 
-    - comparisons to cars // if chapter on cars gets added this needs removal
-    - ride hailing services see @barajas_not_2021
-    - related on demand services (trial at rohrbach)
-  - _inequality_ being silly at times @graeber_dawn_2022.
+    - Lack of real world measures as Comparisons
+    - special point of interests like school data
+    - Focuses solely on door to door travel times and neglects
+      - reliability and delay Data
+      - public transit fare structures @conway_off_the_mta
+    - lacks data including 
+      - comparisons to cars
+      - ride hailing services see @barajas_not_2021
+      - related on demand services (trial at rohrbach)
+    - _inequality_ being silly at times @graeber_dawn_2022.
   == Methodological short commings
     - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
   
@@ -158,6 +133,9 @@
 = Final Remarks
   == Conclusion
   == Outlook
+    - implementing a analysis accounting for delay and cancellation data would help to get a better picture of lived realities
+    - implementing an analysis for scenarios based on more specific scenarios of day to day life
+    - planning data can be helpful for planning new services, including needed night services, or stops
 #pagebreak()
 
 #bibliography("2023 BA Thesis.bib", title: auto, style: "american-psychological-association")
