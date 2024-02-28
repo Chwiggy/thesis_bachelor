@@ -70,15 +70,16 @@
     === origins
       - hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them
     ==== Transport Data
-      - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018
-      - gtfs files from various transit companies @vrs_soll-fahrplandaten_2023 @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 @delfi_deutschlandweite_2023.
+      - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018 downloadad with @tenkanen_pyrosm_2023
+      - gtfs files from various transit companies @vrs_soll-fahrplandaten_2023 @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 but ultimately settled on cropping the german weekly transit dataset from DELFI @delfi_deutschlandweite_2023 using gtfs-general.
+      - Content descriptions for all of these and their usage
     ==== Population Data
   === Destinations
-    - Usage of openly available data, preferably from osm ... extracted with pyrosm @tenkanen_pyrosm_2023
-    - specific, eg secondary school data not mapped in osm @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016, was deemed out of scope for this analysis
+    - no point of interests due to complexity
+    - h3 pandas @dahn_h3pandas_2023
+    - h3 cell to h3 cells with populations excluded or not
   === Case Studies
     - Selected based on data availability, personal familiarity: Heidelberg
-    - h3 pandas @dahn_h3pandas_2023
 #pagebreak()
 
 = Transit Access
@@ -104,7 +105,7 @@
   == Temporal Variability
     Transit access then however depends on temporal aspects as well, both because different destinations offer various time constraints as well as the transport network changing over the course of the day @levinson_towards_2020.
 
-  == Processing
+  == Processing <processing>
     === Travel Matrices
       - enough for basic reach analyses, isochrone itself not important
       - calculated with r5py @r5py as used in @tenkanen_longitudinal_2020, based on the conveyal engine @conway_evidencetransit @Conway_uncertainty_2018
@@ -113,8 +114,13 @@
       - also used in @verduzco_torres_public_2024 for metrics spanning the UK, but identified gap in temporal variability of transport choices
       - automatic clustering using u-map, pca and k-means
     === Clustering
+      - manually by neighbourhoods
+      - manually by time chunks
+      Optional bits:
       - Dimensionality reduction PCA or UMAP @mcinnes_umap_2018 based on the maths from @mcinnes_umap_2020
+      - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
       - Clustering K-Means or HDBSCAN @mcinnes_hdbscan_2016 based on an algorithm proposed by @campello_density-based_2013
+    === Detailed Views
   == Results
     #figure(image("figures/Heidelberg_TravelTime_MT.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <daily_travel_time>
       - Night time travel in @daily_travel_time shows a consistent travel time spread. Around 4 am in the morning this fans out however, and while a majority of cells have faster connections a small part actually have longer average median travel times.
@@ -122,9 +128,10 @@
 #pagebreak()
 
 = Transit Access and Planning
-  == Conveyal Percentiles
+  == Motivation
     - see @verduzco_torres_public_2024
   == Processing
+    - essentially the same processing as for mean travel times @processing but taking the difference between the 90th and 10th percentile of r5py travel times.
   == Results
     #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Plot of differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
       - As @funky_differences shows the impact of planning over the course of the day is much more    variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
@@ -155,6 +162,7 @@
     This may go so far as taking objectively worse routes to reach their destinations to avoid wait times at interchanges. //source?
   == Differences to Planning
   == temporal variation in planning data
+    - so what/what does this indicator describe that we don't get from the pure schedule already?
   == General Limitations
     - Lack of real world measures as Comparisons
     - special point of interests like school data
@@ -168,9 +176,7 @@
       - ride hailing services see @barajas_not_2021
       - related on demand services (trial at rohrbach and schlierbach)
     - _inequality_ being silly at times @graeber_dawn_2022.
-  == Methodological short commings
-    - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
-
+    
 #pagebreak()
 
 = Final Remarks
@@ -180,6 +186,7 @@
     - implementing a analysis accounting for delay and cancellation data would help to get a better picture of lived realities
     - implementing an analysis for scenarios based on more specific scenarios of day to day life
     - planning data can be helpful for planning new services, including needed night services, or stops
+    - introducing points of interest to the analysis for clearer scenarios
 #pagebreak()
 
 #bibliography("2023 BA Thesis.bib", title: auto, style: "institute-of-electrical-and-electronics-engineers")
