@@ -2,7 +2,7 @@
 
 #show: project.with(
   title: "Simple Open Data Measures of Public Transit Service Availability",
-  subtitle: "Temporal Variability",
+  subtitle: "Planning and Temporal Variability",
   authors: (
     // TODO add matr number and postal address as secrets
     (name: "Emily C. Wilke",matr: "35xxxxxxxx", email: "emilycwilke@gmail.com", affiliation: "Ruprecht-Karls-Universität Heidelberg", postal: "xxxxxxx"),
