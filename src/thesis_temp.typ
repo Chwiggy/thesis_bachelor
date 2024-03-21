@@ -113,10 +113,10 @@
   heading([Abstracts], level: 1, numbering: none)
     heading([English], level: 2, numbering: none, outlined: false)
       set par(justify: true)
-      abstract_en
+      par(justify: true, abstract_en)
     heading([German], level: 2, numbering: none, outlined: false)
       set text(lang: "de")
-      abstract_de
+      par(justify: true, abstract_de)
       set text(lang: "en")
   pagebreak()  
 
