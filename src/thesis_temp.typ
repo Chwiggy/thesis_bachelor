@@ -53,6 +53,7 @@
   )
   set text(font: "Crimson Text", lang: "en", size: 12pt)
   set math.equation(numbering: "(1)")
+  set figure(placement: auto)
 
   // paragraph spacing
   show par: set  block(above: 1.2em, below: 1.2em)
