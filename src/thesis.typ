@@ -93,7 +93,7 @@
 
 = Transit Access
   == Measures of Access
-    There is plenty of ways to operationalise access with transit then.
+    There is plenty of ways to operationalise access with transit then
     //TODO expand
     === Isochrones as a Measure of Reach
       An easy tool to asses a basic measure of access are isochrone maps.
@@ -131,9 +131,20 @@
       - Clustering K-Means or HDBSCAN @mcinnes_hdbscan_2016 based on an algorithm proposed by @campello_density-based_2013
     === Detailed Views
   == Results
-    #figure(image("figures/Heidelberg_TravelTime_MT.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <daily_travel_time>
-      - Night time travel in @daily_travel_time shows a consistent travel time spread. Around 4 am in the morning this fans out however, and while a majority of cells have faster connections a small part actually have longer average median travel times.
-      - Outlier one cell on the eastern station throat of RH with no connections to any other cells and therefore an average travel time of 0 minutes.
+    === Travel Times
+      #figure(image("figures/Heidelberg_TravelTime_Map17.png"), caption: [Map of average travel times in minutes in Heidelberg in the hour from 5 to 6 pm from h3 cell to h3 cell.], supplement: "Map", kind: "Map") <map_17_tt>
+        - Variations in @map_17_tt
+        - Notable similarities
+        - Outliers in @map_17_tt
+
+      #figure(image("figures/Heidelberg_TravelTime_BP17.png"), caption: [Boxplots showing average travel times per cell grouped by the borough of the start location.]) <boxplot_17_tt>
+        - Grouped by borough, notably boroughs can include unpopulated areas.
+          - Explains broad spread of boroughs like Altstadt which include a lot of forested area @boxplot_17_tt
+      
+    === Temporal Variation
+      #figure(image("figures/Heidelberg_TravelTime_MT17.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <daily_travel_time>
+       - Night time travel in @daily_travel_time shows a consistent travel time spread. Around 4 am in the morning this fans out however, and while a majority of cells have faster connections a small part actually have longer average median travel times.
+       - Outlier one cell on the eastern station throat of RH with no connections to any other cells and therefore an average travel time of 0 minutes.
 #pagebreak()
 
 = Transit Access and Planning
@@ -148,9 +159,10 @@
 
 = Results
   == Travel Times
+    
 
     === Temporal Variation
-
+      #figure(image("figures/Heidelberg_TravelTime_MT17.png"), caption: [Plot of average travel times Heidelberg from h3 cell to h3 cell with no population mask, over the course of a weekday.])
   == planning data
   // TODO needs a better name
       
