@@ -118,17 +118,11 @@
     === Travel Matrices
       - enough for basic reach analyses, isochrone itself not important
       - calculated with r5py @r5py as used in @tenkanen_longitudinal_2020, based on the conveyal engine @conway_evidencetransit @Conway_uncertainty_2018
+      - @TravelTimeEq with $C_d$ as Travel Time Cost from cell to each other cell divided by the Number of Cells $N_c-1$ for the cell itself.
+      $ T = (sum C_d)/(N_c-1) $ <TravelTimeEq>
     === Temporal Variability
       - conveyal approach @Conway_uncertainty_2018
       - also used in @verduzco_torres_public_2024 for metrics spanning the UK, but identified gap in temporal variability of transport choices
-      - automatic clustering using u-map, pca and k-means
-    === Clustering
-      - manually by neighbourhoods
-      - manually by time chunks
-      Optional bits:
-      - Dimensionality reduction PCA or UMAP @mcinnes_umap_2018 based on the maths from @mcinnes_umap_2020
-      - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
-      - Clustering K-Means or HDBSCAN @mcinnes_hdbscan_2016 based on an algorithm proposed by @campello_density-based_2013
     === Detailed Views
   == Results
     === Travel Times
@@ -157,12 +151,23 @@
       - As @funky_differences shows the impact of planning over the course of the day is much more    variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
 #pagebreak()
 
-= Results
+= Patterns
+  == Clustering
+    I already did the following clusters:
+      - manually by neighbourhoods
+      - manually by time chunks
+    Optional bits:
+    - Dimensionality reduction PCA or UMAP @mcinnes_umap_2018 based on the maths from @mcinnes_umap_2020
+    - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
+    - Clustering K-Means or HDBSCAN @mcinnes_hdbscan_2016 based on an algorithm proposed by @campello_density-based_2013
+  == Results
+#pagebreak()
+  
+= Summary of Results
+
   == Travel Times
     
-
-    === Temporal Variation
-      #figure(image("figures/Heidelberg_TravelTime_MT17.png"), caption: [Plot of average travel times Heidelberg from h3 cell to h3 cell with no population mask, over the course of a weekday.])
+      
   == planning data
   // TODO needs a better name
       
