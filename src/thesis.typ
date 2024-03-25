@@ -118,8 +118,9 @@
     === Travel Matrices
       - enough for basic reach analyses, isochrone itself not important
       - calculated with r5py @r5py as used in @tenkanen_longitudinal_2020, based on the conveyal engine @conway_evidencetransit @Conway_uncertainty_2018
-      - @TravelTimeEq with $C_d$ as Travel Time Cost from cell to each other cell divided by the Number of Cells $N_c-1$ for the cell itself.
-      $ T = (sum C_d)/(N_c-1) $ <TravelTimeEq>
+      - @TravelTimeEq Average Travel Times $T_c$ for each cell with $C_d$ as Travel Time Cost from cell to another destination cell divided by the Number of Cells $N_c-1$ for the cell itself
+      $ T_c = (sum C_d)/(N_c-1) $ <TravelTimeEq>
+      - Here $C_d$ describes the median travel time for a cell to cell connection at every point in time within the set 1 hour time interval given to `r5py`.
     === Temporal Variability
       - conveyal approach @Conway_uncertainty_2018
       - also used in @verduzco_torres_public_2024 for metrics spanning the UK, but identified gap in temporal variability of transport choices
@@ -145,7 +146,8 @@
   == Motivation
     - see @verduzco_torres_public_2024
   == Processing
-    - essentially the same processing as for mean travel times @processing but taking the difference between the 90th and 10th percentile of r5py travel times.
+    - essentially the same processing as for mean travel times @processing but taking the difference between the 90th and 10th percentile of r5py travel times according to @TravelTimeEq as seen in @Percentile_Difference.
+    $ P_c = (sum C_d\("90th"\)-C_d\("10th"\))/(N_c-1) $ <Percentile_Difference>
   == Results
     #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Plot of differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
       - As @funky_differences shows the impact of planning over the course of the day is much more    variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
