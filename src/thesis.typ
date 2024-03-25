@@ -23,13 +23,21 @@
 
   However appealing these pleas for an improved mobility regime may be, there is a distinct lack of easily accessible tools to measure how well a public transit system is serving its users, and the people who for some reason or another have decided that they will not use it.
   Public Transit Data beyond planned schedules is often hard to come by, and the often quite complex thoughts and models that go into service planning remain behind the closed doors of local transit agencies in a lot of cases @pieper_kreislauf_2021 @karner_assessing_2018.
-  One option of addressing this gap is the use of reach data over larger areas to assess the coverage public transit provides for reaching different points of interest hopefully relevant to daily life of potential users e.g. @verduzco_torres_public_2024. These studies are based in schedule data and as in this example several assumptions about public transit usage. One of these assumptions is usually a time of day for travel time calculations, usually something like morning rush hour.
+  One option of addressing this gap is the use of reach data over larger areas to assess the coverage public transit provides for reaching different points of interest hopefully relevant to daily life of potential users e.g. @verduzco_torres_public_2024.
+  These studies are based in schedule data and as in this example several assumptions about public transit usage.
+  One of these assumptions is usually a time of day for travel time calculations, usually something like morning rush hour.
 
-  As general traffic volumes change over the course of the day the, so do public transit schedules. This temporal variability in transit accessibility is so far not generally addressed well in the literature and in available data sets @verduzco_torres_public_2024. So I shall make an attempt at addressing this gap.
+  As general traffic volumes change over the course of the day, so do public transit schedules.
+  This temporal variability in transit accessibility is so far not generally addressed well in the literature and in available data sets @verduzco_torres_public_2024.
+  There is also a smaller kind of temporal variation.
+  With schedule based transit the exact departure time can have serious consequences on actual travel times.
+  Any hour of the day travel times from a specific location may look very different: Arriving at a stop at 10:34 you might exactly make the bus out of your village, but at 10:35 you might have missed it and would need to wait for the next bus in what might be anything from a few minutes to hours.
+  This variation necessitates more or less planning effort on the side of public transport users depending on their departure location, destination, and again the time of day as transit schedules change over the course of the day.
+  With these two temporal variations in mind, this thesis will try to establish measures to visualise and illuminate transit accessibility issues and their temporal dimension. 
 
   == Transit Accesibility Equity and Equality
-    To address this gap as identified above it is paramount to first define, what is even meant by terminology like public transit accessibility or reach.
-    Then it is necessary to expand on the short motivation I have given above to open up the questions i seek to answer in this thesis.
+    But what is even meant by terminology like public transit accessibility or reach?
+    To understand the measures proposed in this thesis it is necessary to expand on the terminology around transit accessibility.
     Furthermore, I will give a almost certainly incomplete overview of the landscape of literature and research surrounding this topic.
 
     === Terminology
@@ -64,6 +72,7 @@
       - US
       - Network Planning @pieper_kreislauf_2021
     - Traveltime Datasets such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
+    - Planning Indicators? //TODO
   == Methodological Approach
     - explorative data analysis based on openly available and openly licensed data, with open source software tools
     === Data Acquisition
@@ -75,7 +84,7 @@
       - Content descriptions for all of these and their usage
     ==== Population Data
   === Destinations
-    - no point of interests due to complexity
+    - no point of interests due to complexity.
     - h3 pandas @dahn_h3pandas_2023
     - h3 cell to h3 cells with populations excluded or not
   === Case Studies
