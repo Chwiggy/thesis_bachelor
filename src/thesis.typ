@@ -25,19 +25,21 @@
   Public Transit Data beyond planned schedules is often hard to come by, and the often quite complex thoughts and models that go into service planning remain behind the closed doors of local transit agencies in a lot of cases @pieper_kreislauf_2021 @karner_assessing_2018.
   One option of addressing this gap is the use of reach data over larger areas to assess the coverage public transit provides for reaching different points of interest hopefully relevant to daily life of potential users e.g. @verduzco_torres_public_2024.
   These studies are based in schedule data and as in this example several assumptions about public transit usage.
-  One of these assumptions is usually a time of day for travel time calculations, usually something like morning rush hour.
 
-  As general traffic volumes change over the course of the day, so do public transit schedules.
+  One of these assumptions is usually a time of day for travel time calculations, usually something like morning rush hour on an average workday @verduzco_torres_public_2024.
+  This however ignores the changing nature of transit accessibility over the course of the day.
+  As general traffic volumes change over the course of the day, so do public transit schedules and quite dramatically at that @levinson_towards_2020.
+  Unlike with car traffic, it is not uncommon to see public transport schedules with considerable gaps: be they a few hours at night in which there is basically no service, or in some instances even entire days like Sundays that see no service at all, or very reduced service patterns.
   This temporal variability in transit accessibility is so far not generally addressed well in the literature and in available data sets @verduzco_torres_public_2024.
-  There is also a smaller kind of temporal variation.
-  With schedule based transit the exact departure time can have serious consequences on actual travel times.
-  Any hour of the day travel times from a specific location may look very different: Arriving at a stop at 10:34 you might exactly make the bus out of your village, but at 10:35 you might have missed it and would need to wait for the next bus in what might be anything from a few minutes to hours.
+  There is, of course, also a smaller kind of temporal variation.
+  With schedule based transit the exact departure time can have distinct consequences on actual travel times.
+  Any hour of the day travel times from a specific location may look very different: Arriving at a stop at 10:34 you might exactly make the bus out of your village, but at 10:35 you might have missed it and would need to wait for the next bus in what might be anything from a few minutes to hours @levinson_towards_2020.
   This variation necessitates more or less planning effort on the side of public transport users depending on their departure location, destination, and again the time of day as transit schedules change over the course of the day.
-  With these two temporal variations in mind, this thesis will try to establish measures to visualise and illuminate transit accessibility issues and their temporal dimension. 
+  With these two temporal variations in mind, this thesis will try to establish indicators to visualise and illuminate transit accessibility issues and their temporal dimension. 
 
   == Transit Accesibility Equity and Equality
     But what is even meant by terminology like public transit accessibility or reach?
-    To understand the measures proposed in this thesis it is necessary to expand on the terminology around transit accessibility.
+    To understand the indices proposed in this thesis it is necessary to expand on the terminology around transit accessibility.
     Furthermore, I will give a almost certainly incomplete overview of the landscape of literature and research surrounding this topic.
 
     === Terminology
@@ -69,7 +71,8 @@
       - public transit networks
       - bipartite networks
     - Transit Equity Studies
-      - US
+      - US @kaplan_using_2014
+        - travel time cubes @kaplan_using_2014
       - Network Planning @pieper_kreislauf_2021
     - Traveltime Datasets such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
     - Planning Indicators? //TODO
@@ -122,9 +125,14 @@
       $ T_c = (sum C_d)/(N_c-1) $ <TravelTimeEq>
       - Here $C_d$ describes the median travel time for a cell to cell connection at every point in time within the set 1 hour time interval given to `r5py`.
     === Temporal Variability
-      - conveyal approach @Conway_uncertainty_2018
+      - conveyal approach @Conway_uncertainty_2018.
+        - That is @r5py by default returns the median travel time over the supplied departure window for the travel time matrix calculation, but it can also supply other percentile travel times within this departure time window.
+        - Median travel time as with average travel time over the course of the departure time window of an hour can provide a more realistic measure than a single departure point in time @levinson_towards_2020 @owen_modeling_2015
       - also used in @verduzco_torres_public_2024 for metrics spanning the UK, but identified gap in temporal variability of transport choices
-    === Detailed Views
+    === Detailed Routing
+      To illustrate and illucidate some of the results of the above processing, I also provided some handpicked routing examples based on the same gtfs feed @delfi_deutschlandweite_2023.
+      These detailed routings take h3 cells @dahn_h3pandas_2023 that i deemed interesting as a departure location and look at times and specific routes to arbitrary central locations within Heidelberg.
+      Routing again was provided by r5py @r5py.
   == Results
     === Travel Times
       #figure(image("figures/Heidelberg_TravelTime_Map17.png"), caption: [Map of average travel times in minutes in Heidelberg in the hour from 5 to 6 pm from h3 cell to h3 cell.], supplement: "Map", kind: "Map") <map_17_tt>
@@ -139,29 +147,39 @@
     === Temporal Variation
       #figure(image("figures/Heidelberg_TravelTime_MT17.png"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <daily_travel_time>
        - Night time travel in @daily_travel_time shows a consistent travel time spread. Around 4 am in the morning this fans out however, and while a majority of cells have faster connections a small part actually have longer average median travel times.
-       - Outlier one cell on the eastern station throat of RH with no connections to any other cells and therefore an average travel time of 0 minutes.
+       - Outlier one cell on the eastern station throat of RH with no connections to any other cells and therefore an average travel time of 0 minutes, excluded from @daily_travel_time.
+    
+    === Detailed Routing
 #pagebreak()
 
-= Transit Access and Planning
+= Planning to Access
   == Motivation
     - see @verduzco_torres_public_2024
   == Processing
-    - essentially the same processing as for mean travel times @processing but taking the difference between the 90th and 10th percentile of r5py travel times according to @TravelTimeEq as seen in @Percentile_Difference.
+    To measure these differences, I performed essentially the same processing as for mean travel times in @processing but taking the difference between the 90th and 10th percentile of r5py @r5py travel times according to @TravelTimeEq as seen in @Percentile_Difference.
+
     $ P_c = (sum C_d\("90th"\)-C_d\("10th"\))/(N_c-1) $ <Percentile_Difference>
+    
+    These percentile differences can be understood as a proxy for the amount of flexibility a traveller brings to adjust their departure time to minimise their waiting time at their first public transport stop or to minimise their overall journey time.
+    As such a high percentile implies transit usage without much planning and adaptation to the schedule and a low percentile implies transit usage with a high degree of planning, but flexibly adapted to the schedule @verduzco_torres_public_2024.
+    The mean difference between these two resulting travel times from each cell to each other cell then represents the expected travel time difference that a public transit user might experience in a specific location when travelling either with a considerable amount of premeditation, or on a whim just hoping for public transit to show up.
+    A low difference could either imply a dense schedule with a lot of opportunities to catch a ride, or the complete absence of transit services to catch within the departure time window.
+
   == Results
     === Spatial
       #figure(image("figures/Heidelberg_Difference_Map17.png"), kind: "Map", supplement: "Map", caption: [Map of differences in travel time in Heidelberg for 90th and 10th percentile of travel times in minutes per cell.])
 
     === Temporal
       #figure(image("figures/Heidelberg_Difference_MT.png"), caption: [Differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
-        - As @funky_differences shows the impact of planning over the course of the day is much more    variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
+        - As @funky_differences shows the impact of planning over the course of the day is much more variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
 #pagebreak()
 
 = Patterns
-  == Clustering
+  == Geographically
     I already did the following clusters:
       - manually by neighbourhoods
       - manually by time chunks
+  == Clustering
     Optional bits:
     - Dimensionality reduction PCA or UMAP @mcinnes_umap_2018 based on the maths from @mcinnes_umap_2020
     - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
@@ -192,13 +210,15 @@
     And even hypothetical travelers with objective time perception have different ideas about the cost a certain travel time entails based on the mode of transit.
     That is they may have preferences on where and how they like to spend their travel time.
     This may go so far as taking objectively worse routes to reach their destinations to avoid wait times at interchanges. //source?
-  == Differences to Planning
+
+  == Differences in Planning Needs
   == temporal variation in planning data
     - so what/what does this indicator describe that we don't get from the pure schedule already?
   == General Limitations
     - Lack of real world measures as Comparisons
     - special point of interests like school data
     - Focuses solely on door to door travel times and neglects other aspects of such journeys.
+   
 
     There's no reliability and delay data included in this analysis as such data in a disaggregated form is rarely openly available and often requires setting up data scraping @kriesel_bahnmining_2019.
     We also excluded public transit fare structures as implemented in @conway_off_the_mta. While these are a common cost factor used next to travel time @levinson_towards_2020, they are complicated to implement for a simple analysis like this.
@@ -206,8 +226,11 @@
     - lacks data including
       - comparisons to cars
       - ride hailing services see @barajas_not_2021
-      - related on demand services (trial at rohrbach and schlierbach)
-    - _inequality_ being silly at times @graeber_dawn_2022.
+      - related on demand services (trial at rohrbach and schlierbach) @nahverkehrsgesellschaft_baden-wurttemberg_mbh_-demand-verkehr_2024 @rhein-neckar-verkehr_gmbh_fips_2024
+      - Lack of consideration for service quality: What about services in the gtfs file that need advanced booking of up to an hour, like transport association scheduled on-call taxi services @vrn_vrn_2017.
+    - using travel time cubes for more detailed transit accessibility analysis offers a lot more detailed view of transit behaviours @kaplan_using_2014
+    - @kaplan_using_2014 tries to quantify transit inequalities with gini coefficients 
+      - _inequality_ being silly at times @graeber_dawn_2022.
     
 #pagebreak()
 
@@ -221,4 +244,5 @@
     - introducing points of interest to the analysis for clearer scenarios
 #pagebreak()
 
-#bibliography("2023 BA Thesis.bib", title: auto, style: "institute-of-electrical-and-electronics-engineers")
+#bibliography("2023 BA Thesis.bib", title: auto, style: "american-psychological-association")
+// TODO Appendices
