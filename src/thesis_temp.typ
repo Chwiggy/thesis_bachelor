@@ -70,7 +70,7 @@
   ]
 
   set heading(numbering: "1.1")
-  show par: set block(spacing: 0.65em)
+  show par: set block(spacing: 1em)
   set par(leading: 1em)
 
   // title page
@@ -132,7 +132,10 @@
   // body
   set page(numbering: "1")
   counter(page).update(1)
-  set par(justify: true, first-line-indent: 1em)
+  set block(above: 2em)
+  set par(justify: true, first-line-indent: 1em, leading: 1em)
+
+  
 
   body
 
