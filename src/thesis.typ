@@ -17,7 +17,7 @@
 
 = Introduction
   In recent years, but for decades by now, the demand for a paradigm shift in transportation infrastructure and service has become louder and louder.
-  While calls for a shift away from car centric mobility are nothing new and were a well established part of German Academic discourse in the 1990s already @frank_hat_1993, it has become part of a widespread political discourse around the so called _Verkehrswende_ @holzapfel_urbanismus_2020.
+  While calls for a shift away from car centric mobility are nothing new and were a well established part of German academic discourse in the 1990s already @frank_hat_1993, it has become part of a widespread political discourse around the so called _Verkehrswende_ @holzapfel_urbanismus_2020.
   With increased awareness and concrete experiences of climate change this discourse has reached states of heated debate.
   Taunted benefits of a modal shift away from individual motorised transit towards public transit include a more efficient transport system both in terms of traffic throughput as well as in terms of energy usage, decreased local pollution @teufel_autoverkehr_1993, and a lessened dependency on cars favouring more healthy modes of transit and more livable environments for humans @rissel_physical_2012 @stevenson_health_2016 @holzapfel_urbanismus_2020.
 
@@ -37,61 +37,76 @@
   This variation necessitates more or less planning effort on the side of public transport users depending on their departure location, destination, and again the time of day as transit schedules change over the course of the day.
   With these two temporal variations in mind, this thesis will try to establish indicators to visualise and illuminate transit accessibility issues and their temporal dimension. 
 
-  == Transit Accesibility Equity and Equality
+  == Terminology
     But what is even meant by terminology like public transit accessibility or reach?
     To understand the indices proposed in this thesis it is necessary to expand on the terminology around transit accessibility.
     Furthermore, I will give a almost certainly incomplete overview of the landscape of literature and research surrounding this topic.
 
-    === Terminology
-      - There are various different, and branching understandings of _access_ and _accessibility_.
-      - // TODO add more understandings of transit accessibility
-      - Especially accesibility often used in the sense of the disabled community @levinson_towards_2020
-      - general measures of access play an important role in empirical studies of transportation systems. There _access_, as opposed to _mobility_, measures the ease of reaching valued destinations @levinson_towards_2020.
-      Specifically in North American literature, spurred by rules of the Federal Transport Administration on transit accessibility studies, there seem to be two general modes of thinking about transit access _Access to Transit_ and _Access with Transit_ @carleton_comparative_2018.
-      Access to transit means that transit itself becomes the target destination of such an access analysis.
-      And while access to transit measures can be as simple as the average proximity to transit stops in an area. These measures however fall short in explaining the mobility decisions in day to day life as they fail to consider desirable destinations @karner_assessing_2018.
-      - This paper takes a geographical view into _access_ and uses it interchangeably with _accessibility_.
-      - This paper also tries to consider access with transit above access to transit.
+    Understandings of _access_ and _accessibility_ inevitably vary across different contexts and subject areas.
+    But even within the context of geographic transport analysis theri usage may differ between different authors.
+    Partly, these understandings build on each other, partly they mean different things on various in- and interdependent axes.
+    To understand what I mean with measures for transit acccess, it seems prudent to examine these various understandings of _access_ and _accessibility_ first.
+    
+    For example the term _accessibility_ has deep roots in discourses around marginalised communities, particularly among disability activism @levinson_towards_2020.
+    This dimension of access usually depends on the negative freedom from barriers to a certain service.
+    May these be physical barriers like stairs for a wheelchair user, or non-physical barriers like access requirements to services from language barrriers or price barriers like high fares.
+    While this kind of _access_ is an important consideration in any kind of transportation network, it itself carries a plethora of different dimensions and intersections, that could plausibly fill years of graduate theses. 
+    For this thesis then the focus lies in geographical notions of _accessibility_.
+    In these _access_ measures a general ease of reaching destinations, that are deemed valuable in some sense or another.
+    For these, general measures of _access_, as opposed to _mobility_, play an important role in empirical studies of transportation systems @levinson_towards_2020.
 
-      - In the end such analysis aims to show gaps and inequalities in usable access to the transportation system.
-      - Looking specifically at transit time as an impedance or cost factor and it's variability over time.
-    === Motivation
-      - Traditional transport planning centering on men? // source
-        - German Transport Planning post world war 2? // source
-      - Transit planning and identifying demand in public transit networks is a complicated process, that takes into account a plethora of data that's hard to access or acquire @pieper_kreislauf_2021.
-        - statistical routing data based on conveyal engine @conway_evidencetransit
-    === Research Question
-      - How temporal variability in transit accessibility maps on to spatial usage patterns?
-      - are cities really better connected? edge times?
-      - are rural areas always worse off in connections or are there times when it's actual actions?
+    Specifically in North American literature, spurred by rules of the Federal Transport Administration on transit accessibility studies, there seem to be two general modes of thinking about transit access _Access to Transit_ and _Access with Transit_ @carleton_comparative_2018.
+    _Access to transit_ means that transit itself becomes the target destination of such an access analysis.
+    And while access to transit measures can be as simple as the average proximity to transit stops in an area. These measures however fall short in explaining the mobility decisions in day to day life as they fail to consider desirable destinations @karner_assessing_2018.
 
-  == Related Work
-    - Network Centrality Measures
-      - road networks
-      - public transit networks
-      - bipartite networks
-    - Transit Equity Studies
-      - US @kaplan_using_2014
-        - travel time cubes @kaplan_using_2014
-      - Network Planning @pieper_kreislauf_2021
-    - Traveltime Datasets such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
-    - Planning Indicators? //TODO
-  == Methodological Approach
-    - explorative data analysis based on openly available and openly licensed data, with open source software tools
-    === Data Acquisition
-    === origins
-      - hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them
-    ==== Transport Data
-      - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018 downloadad with @tenkanen_pyrosm_2023
-      - gtfs files from various transit companies @vrs_soll-fahrplandaten_2023 @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 but ultimately settled on cropping the german weekly transit dataset from DELFI @delfi_deutschlandweite_2023 using gtfs-general.
-      - Content descriptions for all of these and their usage
-    ==== Population Data
-  === Destinations
-    - no point of interests due to complexity.
-    - h3 pandas @dahn_h3pandas_2023
-    - h3 cell to h3 cells with populations excluded or not
-  === Case Studies
-    - Selected based on data availability, personal familiarity: Heidelberg
+    // TODO continue here
+    
+    - This paper takes a geographical view into _access_ and uses it interchangeably with _accessibility_.
+    - This paper also tries to consider access with transit above access to transit.
+
+    - In the end such analysis aims to show gaps and inequalities in usable access to the transportation system.
+    - Looking specifically at transit time as an impedance or cost factor and it's variability over time.
+  == Motivation
+    - Traditional transport planning centering on men? // source
+      - German Transport Planning post world war 2? // source
+    - Transit planning and identifying demand in public transit networks is a complicated process, that takes into account a plethora of data that's hard to access or acquire @pieper_kreislauf_2021.
+      - statistical routing data based on conveyal engine @conway_evidencetransit
+  == Research Question
+    - How temporal variability in transit accessibility maps on to spatial usage patterns?
+    - are cities really better connected? edge times?
+    - are rural areas always worse off in connections or are there times when it's actual actions?
+
+#pagebreak()
+
+= Related Work
+  - Network Centrality Measures
+    - road networks
+    - public transit networks
+    - bipartite networks
+  - Transit Equity Studies
+    - US @kaplan_using_2014
+      - travel time cubes @kaplan_using_2014
+    - Network Planning @pieper_kreislauf_2021
+  - Traveltime Datasets such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
+  - Planning Indicators? //TODO
+#pagebreak()
+
+= Methodological Approach
+  - explorative data analysis based on openly available and openly licensed data, with open source software tools
+  == Data Acquisition
+  == Origins
+    - hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them
+  === Transport Data
+    - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018 downloadad with @tenkanen_pyrosm_2023
+    - gtfs files from various transit companies @vrs_soll-fahrplandaten_2023 @vvs_soll-fahrplandaten_2023 @rhein-neckar-verkehr_gmbh_aktueller_2023 but ultimately settled on cropping the german weekly transit dataset from DELFI @delfi_deutschlandweite_2023 using gtfs-general.
+    - Content descriptions for all of these and their usage
+  === Population Data
+== Destinations
+  - no point of interests due to complexity.
+  - h3 pandas @dahn_h3pandas_2023
+  - h3 cell to h3 cells with populations excluded or not
+== Case Studies
+  - Selected based on data availability, personal familiarity: Heidelberg
 #pagebreak()
 
 = Transit Access
@@ -244,5 +259,26 @@
     - introducing points of interest to the analysis for clearer scenarios
 #pagebreak()
 
-#bibliography("2023 BA Thesis.bib", title: auto, style: "american-psychological-association")
 // TODO Appendices
+
+#set heading(supplement: "Appendix",depth:2, numbering: "A.1",)
+#show heading.where(level: 1): it => [
+  #text([#it.supplement #counter(heading).display(): #it.body])
+  
+]
+#counter(heading).update(0)
+= Aknowledgements
+- Thanks to the people at HeiGIT gGmbh for supporting this thesis
+  - specifically Christina Ludwig and Kirsten von Elverfeld for guiding me through this project and asking valuable questions
+  - but also for access to computing resources
+- Thanks to my partners Jooa H.A. Hooli and Lillian V. Oostrom for invaluable coding advice and a shoulder to cry on
+- Part of the resources and ideas for this thesis where gathered at an industry summer school financed by the _Verband Deutscher Verkehrsunternehmen_ (VDV) a lobby group of german public transport companies.
+  - This includes accommodations and food in the order of 2000 €
+  - But also free access to resources like VDV training material @pieper_kreislauf_2021
+#pagebreak()
+= Bibliography
+#bibliography("2023 BA Thesis.bib", title: none, style: "american-psychological-association")
+#pagebreak()
+= Code
+Meow
+#pagebreak(weak: true)
