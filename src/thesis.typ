@@ -53,7 +53,7 @@
     While this kind of _access_ is an important consideration in any kind of transportation network, it itself carries a plethora of different dimensions and intersections, that could plausibly fill years of graduate theses. 
     For this thesis then the focus lies in geographical notions of _accessibility_.
     In these _access_ measures a general ease of reaching destinations, that are deemed valuable in some sense or another.
-    For these, general measures of _access_, as opposed to _mobility_, play an important role in empirical studies of transportation systems @levinson_towards_2020.
+    For these, general measures of _access_ in a geographic sense, as opposed to _mobility_ as a personalised characteristic, play an important role in empirical studies of transportation systems @pyrialakou_accessibility_2016 @levinson_towards_2020.
 
     Specifically in North American literature, spurred by rules of the Federal Transport Administration on transit accessibility studies, there seem to be two general modes of thinking about transit access _Access to Transit_ and _Access with Transit_ @carleton_comparative_2018.
     _Access to transit_ means that transit itself becomes the target destination of such an access analysis.
@@ -120,8 +120,9 @@
       This can be generalised to a access measure: Destination opportunities outside this circle are considered reachable and counted, opportunities without are left out.
       This measure then encapsulates "all possible destinations within [a] travel cost threshold" @levinson_towards_2020.
       That then is what @verduzco_torres_public_2024 would call an cummulative accesibility measure.
-      A modern tool that provides such isochrone maps is for example ors @heigit_openrouteservice_2023. Using Isochrones as an easy to understand and interpretable measure of access in geoinformation systems has a much longer history however @osullivan_using_2000 @bauer_computing_2008 @levinson_towards_2020.
+      A modern tool that provides such isochrone maps is for example ors @heigit_openrouteservice_2023. Using Isochrones as an easy to understand and interpretable measure of access in geoinformation systems has a much longer history however @osullivan_using_2000 @bauer_computing_2008 @zeng_visualizing_2014 @levinson_towards_2020. This might be because they are a visually simple tool that can be easily overlaid over geographic maps of a study area @zeng_visualizing_2014.
       //TODO expand
+      - ideas from @zeng_visualizing_2014
 
       Besides cummulative there's also individual accessibility measures that are relevant for locations where not the access to a variety of locations is important, but the access to a specific location is of interest. This can be true for services that are common but not generally interchangeable either due to restrictions on their use or scarcity. For these measures the minimum travel cost is of relevance @verduzco_torres_public_2024.
       //TODO expand
