@@ -4,24 +4,24 @@ on:
     tags:
       - '*'
 
-jobs:
-  permissions:
-    contents: write
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
-      - name: Typst
-        uses: lvignoli/typst-action@main
-        with:
-          source_file: src/thesis.typ
+  jobs:
+    permissions:
+      contents: write
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          
+        - name: Typst
+          uses: lvignoli/typst-action@main
+          with:
+            source_file: src/thesis.typ
 
-      - name: Upload PDF file
-        uses: svenstaro/upload-release-action@v2
-        with:
-          file: src/thesis.pdf
-          asset_name: mything
-          tag: ${{ github.ref }}
-          overwrite: true
+        - name: Upload PDF file
+          uses: svenstaro/upload-release-action@v2
+          with:
+            file: src/thesis.pdf
+            asset_name: mything
+            tag: ${{ github.ref }}
+            overwrite: true
