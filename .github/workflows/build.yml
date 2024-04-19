@@ -5,6 +5,8 @@ on:
       - '*'
 
 jobs:
+  permissions:
+    contents: write
   build:
     runs-on: ubuntu-latest
     steps:
