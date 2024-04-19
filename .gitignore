@@ -1,3 +1,4 @@
 .vscode
-src/thesis.pdf
-src/thesis_temp.pdf
+src/*.pdf
+src/appendices/*.pdf
+src/chapters/*.pdf
