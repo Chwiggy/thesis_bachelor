@@ -16,10 +16,10 @@
 
   == Results
     === Spatial
-      #figure(image("../figures/Heidelberg_Difference_Map17.png"), kind: "Map", supplement: "Map", caption: [Map of differences in travel time in Heidelberg for 90th and 10th percentile of travel times in minutes per cell.])
+      #figure(image("../figures/Heidelberg_Difference_Map17.svg"), kind: "Map", supplement: "Map", caption: [Map of differences in travel time in Heidelberg for 90th and 10th percentile of travel times in minutes per cell.])
 
     === Temporal
-      #figure(image("../figures/Heidelberg_Difference_MT.png"), caption: [Differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
+      #figure(image("../figures/Heidelberg_Difference_MT.svg"), caption: [Differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
         - As @funky_differences shows the impact of planning over the course of the day is much more variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
 
 <end_of_chapter>
