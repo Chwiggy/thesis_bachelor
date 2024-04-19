@@ -19,7 +19,6 @@ jobs:
       - name: Upload PDF file
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: src/thesis.pdf
           asset_name: mything
           tag: ${{ github.ref }}
