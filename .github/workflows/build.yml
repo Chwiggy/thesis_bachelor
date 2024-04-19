@@ -1,8 +1,8 @@
 name: Build Typst document
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -17,18 +17,10 @@ jobs:
           source_file: src/thesis.typ
 
       - name: Upload PDF file
-        uses: actions/upload-artifact@v4
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: PDF
-          path: src/thesis.pdf
-
-      - name: Get current date
-        id: date
-        run: echo "DATE=$(date +%Y-%m-%d-%H:%M)" >> $GITHUB_ENV
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: github.ref_type == 'tag'
-        with:
-          name: "${{ github.ref_name }} — ${{ env.DATE }}"
-          files: src/thesis.pdf
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: src/thesis.pdf
+          asset_name: mything
+          tag: ${{ github.ref }}
+          overwrite: true
