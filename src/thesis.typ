@@ -55,7 +55,8 @@
 #include "appendices/01_aknowledgements.typ"
 #pagebreak()
 
-#bibliography("bibliography.bib", title: "Bibliography", style: "american-psychological-association")
+= Bibliography
+#bibliography("bibliography.bib", title: none, style: "american-psychological-association")
 #pagebreak()
 
 #include "appendices/03_code.typ"
