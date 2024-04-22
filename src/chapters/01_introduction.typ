@@ -22,44 +22,38 @@
   This variation necessitates more or less planning effort on the side of public transport users depending on their departure location, destination, and again the time of day as transit schedules change over the course of the day.
   With these two temporal variations in mind, this thesis will try to establish indicators to visualise and illuminate transit accessibility issues and their temporal dimension. 
 
-  == Terminology
-    But what is even meant by terminology like public transit accessibility or reach?
-    To understand the indices proposed in this thesis it is necessary to expand on the terminology around transit accessibility.
-    Furthermore, I will give a almost certainly incomplete overview of the landscape of literature and research surrounding this topic.
-
-    Understandings of _access_ and _accessibility_ inevitably vary across different contexts and subject areas.
-    But even within the context of geographic transport analysis theri usage may differ between different authors.
-    Partly, these understandings build on each other, partly they mean different things on various in- and interdependent axes.
-    To understand what I mean with measures for transit acccess, it seems prudent to examine these various understandings of _access_ and _accessibility_ first.
-    
-    For example the term _accessibility_ has deep roots in discourses around marginalised communities, particularly among disability activism @levinson_towards_2020.
-    This dimension of access usually depends on the negative freedom from barriers to a certain service.
-    May these be physical barriers like stairs for a wheelchair user, or non-physical barriers like access requirements to services from language barrriers or price barriers like high fares.
-    While this kind of _access_ is an important consideration in any kind of transportation network, it itself carries a plethora of different dimensions and intersections, that could plausibly fill years of graduate theses. 
-    For this thesis then the focus lies in geographical notions of _accessibility_.
-    In these _access_ measures a general ease of reaching destinations, that are deemed valuable in some sense or another.
-    For these, general measures of _access_ in a geographic sense, as opposed to _mobility_ as a personalised characteristic, play an important role in empirical studies of transportation systems @pyrialakou_accessibility_2016 @levinson_towards_2020.
-
-    Specifically in North American literature, spurred by rules of the Federal Transport Administration on transit accessibility studies, there seem to be two general modes of thinking about transit access _Access to Transit_ and _Access with Transit_ @carleton_comparative_2018.
-    _Access to transit_ means that transit itself becomes the target destination of such an access analysis.
-    And while access to transit measures can be as simple as the average proximity to transit stops in an area. These measures however fall short in explaining the mobility decisions in day to day life as they fail to consider desirable destinations @karner_assessing_2018.
-
-    // TODO continue here
-    
-    - This paper takes a geographical view into _access_ and uses it interchangeably with _accessibility_.
-    - This paper also tries to consider access with transit above access to transit.
-
-    - In the end such analysis aims to show gaps and inequalities in usable access to the transportation system.
-    - Looking specifically at transit time as an impedance or cost factor and it's variability over time.
   == Motivation
-    - Traditional transport planning centering on men? // source
-      - German Transport Planning post world war 2? // source
+    There are a plenty of indicators already out there trying to capture the characteristics of transit networks.
+    This spans from network centrality measures applied in almost simplistic network models to thorough analyses of various aspects of transit access @tu_centrality_2013 @liu_spatial_2020 @conway_evidencetransit @karner_assessing_2018.
+    
+    Within transit there is hardly such a thing as a neutral descriptive dataset, indicator or study.
+    Baked in are almost always assumptions and political ideas on how our transit system should look, assumptions about the costs of transit to society and the individual, and last but not least assumptions about the need for mobility and the kind of destinations deemed worthwhile to reach.
+    All of these assumptions of course are inherently also linked to larger societal ideas of how our lives should be structured and lived.
+    None of these assumptions are inevitable or ever lasting and should be aknowledged then as at least in part tainted by normative ideas about how transit should work and about how transit should be used.
+    And not least, this means, that this thesis won't be free of these implicit or explicit value judgements either.
+    Transit is an inherently political topic.
+
+    // TODO expand:
+    - Traditional transport planning centering on men? // source @holzapfel_urbanismus_2020 maybe
+    - German Transport Planning post world war 2? // source
+    - Athens Charta //source
+    - 15 minute city trends
+    - walkable cities
+    
+    Capturing all these various aspects of a transit network at once however runs the danger of reducing all these complexities to the absurd.
+
+
     - Transit planning and identifying demand in public transit networks is a complicated process, that takes into account a plethora of data that's hard to access or acquire @pieper_kreislauf_2021.
       - statistical routing data based on conveyal engine @conway_evidencetransit
   == Research Question
     - How temporal variability in transit accessibility maps on to spatial usage patterns?
     - are cities really better connected? edge times?
     - are rural areas always worse off in connections or are there times when it's actual actions?
+    - To be falsified:
+      - Mean Travel Times cannot capture transit service patterns at a given point in time
+      - Outlying areas have generally worse accessibility across all times of the day than geographically central locations. For Heidelberg this would mean that Hauptbahnhof and Bismarckplatz alway have a lower mean travel time than areas farther out.
+      - The Planning indicator aligns with accissibility indicator, as in the most central parts of the city will also have the least need to plan journeys
+      - The Planning indicator will preserve it's characteristics across the course of a day
 
 <end_of_chapter>
 

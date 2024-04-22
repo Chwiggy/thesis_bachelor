@@ -2,6 +2,7 @@
 
 = Methodological Approach
   - explorative data analysis based on openly available and openly licensed data, with open source software tools
+  - trying to answer the questions from research questions
   == Data Acquisition
   == Origins
     - hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them
@@ -15,12 +16,6 @@
   - h3 cell to h3 cells with populations excluded or not
 == Case Studies
   - Selected based on data availability, personal familiarity: Heidelberg
-== Hypotheses
-  - To be falsified:
-    - Mean Travel Times cannot capture transit service patterns at a given point in time
-    - Outlying areas have generally worse accessibility across all times of the day than geographically central locations. For Heidelberg this would mean that Hauptbahnhof and Bismarckplatz alway have a lower mean travel time than areas farther out.
-    - The Planning indicator aligns with accissibility indicator, as in the most central parts of the city will also have the least need to plan journeys
-    - The Planning indicator will preserve it's characteristics across the course of a day
 
   <end_of_chapter>
 
