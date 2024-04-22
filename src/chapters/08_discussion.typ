@@ -1,8 +1,10 @@
 #import "../preamble.typ": *
 
 = Discussion
+  == Mean Travel Times
   // TODO figure out what to do with the structure of this
   // Two discussions in the chapter above and recap here?
+  // should answer the hypotheses from methodology here
   == Temporal Variations of Mean Travel Times
     - as expected more central places within the city boundaries also feature lower average travel times throughout the day.
 
@@ -13,8 +15,10 @@
     That is they may have preferences on where and how they like to spend their travel time.
     This may go so far as taking objectively worse routes to reach their destinations to avoid wait times at interchanges. //source?
 
-  == Differences in Planning Needs
-  == temporal variation in planning data
+  == Planning Indicator
+    - Handschuhsheim breaks expectations
+    - central in transit network despite not located in the centre of town. Various tram lines connecting to a lot of area, means high frequency of transit opportunities (around 30 an hour)
+  == Temporal Variation in Planning Indicator
     - so what/what does this indicator describe that we don't get from the pure schedule already?
   == General Limitations
     - Lack of real world measures as Comparisons
