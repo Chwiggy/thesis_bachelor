@@ -42,12 +42,12 @@ In the following section I will explore, the aspects of this work already discus
     Uniform public transit networks embedded in uniform space are, unfortunately, hard to find in the real world.
     
     To embed a transit network into a more realistic model of an outside world, it can make sense to, in essence, combine the graph generated from a public transit network with one generated from the underlying road network. This makes some sense, as users of public transit generally require the usage of roads or paths to access a transit stop and many modes of public transit are dependent on street infrastructure themselves. Creating such a bipartite network then specifically makes sense for transit modes that are bound or predominantly bound to the street network such as buses @liu_spatial_2020.
+    
+    Generally however, public transit with a few exceptions has a few complicating factors in comparison to road transit with individual modes. The primary difference here is that transit options are only sporadically available over the course of an hour or a day. These opportunities can be defined by a schedule stating departure and arrival times, but can also be given as a frequency or headway stating the interval with which transit opportunities arise @levinson_towards_2020 @conway_evidencetransit.
 
-    - Complexity from changing schedules or headways
-    // TODO what did i take from this?
-    - Routing based approaches.
-    // TODO do these impedance factors belong here or should they move to the next section?
-    - all the impedance factors from @levinson_towards_2020 @conway_off_the_mta
+    On the flip side of this, routing between stations only is a rare case in realistic transit usage. In reality, of course origin and destination are often locations not directly on the transit network, but in a certain distance from a stop. Consequently, these journeys are often multimodal: transit users walk, bike, or drive to a stop in their vicinity, take a potentially multi-leg transit journey to arrive at a station or stop in the general vicinity from their destination, from where they can walk, bike or drive to their actual destination @verduzco_torres_public_2024. This requires consideration of modes like walking in network analysis.
+
+    Directly calculating network characteristic from such a complex network tends to be a complex task of finding the right weights and applying them correctly. With the widespread availability of routing tools, geographers have tried to simplify the problem of gaining insights about the network with less theoretical measures. For this, often network centrality measures are approximated by accummulating routing data for a set amount of sample points, that are either uniformly distributed in space, or based on characteristica like population, or a desirability of certain origins or destinations tailored to exact questions @tenkanen_longitudinal_2020 @klipper_flood_2021 @verduzco_torres_public_2024.
     
   == Reach
     - Reach as a measure of access
@@ -59,6 +59,7 @@ In the following section I will explore, the aspects of this work already discus
     - Network Planning @pieper_kreislauf_2021
   == Traveltime Datasets
     - such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
+    - all the impedance factors from @levinson_towards_2020 @conway_off_the_mta
   == Planning Indicators?
   //TODO
 
