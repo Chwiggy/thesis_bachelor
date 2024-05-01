@@ -13,7 +13,7 @@
 )
 
 // TODO insert page for affidavit
-// TODO maybe import chapters from separate documents
+
 #import "preamble.typ": *
 #bib_state.update(none)
 

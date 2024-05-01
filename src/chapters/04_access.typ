@@ -2,17 +2,13 @@
 #set math.equation(numbering: "(1)")
 = Transit Access
   == Measures of Access
-    There is plenty of ways to operationalise access with transit then
+    as we have seen, there are plenty of ways to operationalise access with transit then
     //TODO expand
     === Isochrones as a Measure of Reach
-      An easy tool to asses a basic measure of access are isochrone maps.
-      They are comprised of an area that can be reached within a certain time, where the actual isochrone delimits this area.
-      The isochrone is the line that denotes equal (greek: _iso_) time (greek: _chronos_) and would transform into a circle in a coordinate system transformed by travel time.
-      This can be generalised to a access measure: Destination opportunities outside this circle are considered reachable and counted, opportunities without are left out.
+      
+      As mentioned above, isochrones are a common tool to characterise the access opportunities from a specific point. As a spatial characteristic, this can be generalised to a access measure: Destination opportunities outside this circle are considered reachable and counted, opportunities without are left out.
       This measure then encapsulates "all possible destinations within [a] travel cost threshold" @levinson_towards_2020.
-      That then is what @verduzco_torres_public_2024 would call an cummulative accesibility measure.
-      A modern tool that provides such isochrone maps is for example ors @heigit_openrouteservice_2023. Using Isochrones as an easy to understand and interpretable measure of access in geoinformation systems has a much longer history however @osullivan_using_2000 @bauer_computing_2008 @zeng_visualizing_2014 @levinson_towards_2020. This might be because they are a visually simple tool that can be easily overlaid over geographic maps of a study area @zeng_visualizing_2014.
-      //TODO expand
+    That then is what @verduzco_torres_public_2024 would call an cummulative accesibility measure.
       - ideas from @zeng_visualizing_2014
 
       Besides cummulative there's also individual accessibility measures that are relevant for locations where not the access to a variety of locations is important, but the access to a specific location is of interest. This can be true for services that are common but not generally interchangeable either due to restrictions on their use or scarcity. For these measures the minimum travel cost is of relevance @verduzco_torres_public_2024.
@@ -21,6 +17,7 @@
       Despite these measures not being mathematically complex this research approaches the question from a different point of view and tries to adapt a measure originally adopted in network centrality analysis for the measure of reach.
       - active measure of reach, that is I measure how easy or hard it may be to move from one cell to another, as oppossed how easy it is for a cell to be reached @levinson_towards_2020.
       - travel time as a common cost measure for transit accessibility
+      - approximating closeness centrality as formulated by @stamos_transportation_2023
   == Temporal Variability
     Transit access then however depends on temporal aspects as well, both because different destinations offer various time constraints as well as the transport network changing over the course of the day @levinson_towards_2020.
 
@@ -42,7 +39,7 @@
       Routing again was provided by r5py @r5py.
   == Results
     === Travel Times
-      #figure(image("../figures/Heidelberg_TravelTime_Map17.svg"), caption: [Map of average travel times in minutes in Heidelberg in the hour from 5 to 6 pm from h3 cell to h3 cell.], supplement: "Map", kind: "Map") <map_17_tt>
+      #figure(image("../figures/Heidelberg_TravelTime_Map17.svg"), caption: [Map of average travel times in minutes in Heidelberg in the hour from 5 to 6 pm from h3 cell to h3 cell.], supplement: "Map", kind: "Map", placement: auto) <map_17_tt>
         - Variations in @map_17_tt
         - Notable similarities
         - Outliers in @map_17_tt
