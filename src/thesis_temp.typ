@@ -61,7 +61,7 @@
   // caption rules
   show figure: it => [
     #block(it.body)
-    #set text (font:"Atkinson Hyperlegible", weight: "bold", size: 10pt)
+    #set text (style: "italic", weight: "bold", size: 10pt)
     #pad(
       bottom: 0.75em,
       left: 2em,
