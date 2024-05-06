@@ -21,7 +21,7 @@
     === Temporal
       #figure(image("../figures/Heidelberg_Difference_MT.svg"), caption: [Differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
         - As @funky_differences shows the impact of planning over the course of the day is much more variable than than the average travel times based on a median travel time over the course of an hour (compare also /*TODO reference daily_travel_time*/).
-
+      #figure(image("../figures/pd_summary_stats_all.svg"), caption: [Average Travel Time Difference for every cell in Heidelberg])
 <end_of_chapter>
 
 #locate(loc => bib_state.at(query(<end_of_chapter>, loc).first().location()))
