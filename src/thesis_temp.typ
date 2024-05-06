@@ -108,7 +108,65 @@
 
   set page(numbering: "i")
   counter(page).update(1)
-  heading([Affidavits], level: 1, numbering: none)
+  box(
+    [
+      #set text(lang: "de")
+      #set par(justify: true)
+      #set heading(numbering: none)
+      = Eidesstattliche Erklärung
+        Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Alle Ausführungen, die anderen veröffentlichten oder nicht veröffentlichten Schriften wörtlich oder sinngemäß entnommen wurden, habe ich kenntlich gemacht.
+
+        Die Arbeit hat in gleicher oder ähnlicher Fassung noch keiner anderen Prüfungsbehörde vorgelegen.
+        
+        #box(height: 3em)
+        #grid(columns: 2, gutter: 5em,
+          box(
+            [
+              #line(length: 100%)
+              Ort, Datum
+            ]
+          ),
+          box(
+            [
+              #line(length: 100%)
+              Unterschrift
+            ]
+          )
+        )
+        #box(height: 3em)
+    ]
+  )
+  
+  
+
+  box(
+    [
+      #set text(lang: "en")
+      #set par(justify: true)
+      #set heading(numbering: none)
+      = Statutory Declaration
+        I declare that I have authored this thesis independently, that I have not used other than the declared sources / resources and that I have explicitly marked all material which has been quoted either literally or by content from the used sources.
+        
+        This paper was not previously presented to another examination board and has not been published.
+        
+        #box(height: 3em)
+        #grid(columns: 2, gutter: 5em,
+          box(
+            [
+              #line(length: 100%)
+              Date
+            ]
+          ),
+          box(
+            [
+              #line(length: 100%)
+              Signature
+            ]
+          )
+        )
+    ]
+  )
+
   pagebreak()
 
   // abstracts

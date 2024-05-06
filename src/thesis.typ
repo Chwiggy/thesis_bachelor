@@ -12,8 +12,6 @@
   abstract_de: "",
 )
 
-// TODO insert page for affidavit
-
 #import "preamble.typ": *
 #bib_state.update(none)
 
