@@ -31,17 +31,14 @@
 
 #include "chapters/05_planning.typ"
 #pagebreak()
-
-#include "chapters/06_patterns.typ"
-#pagebreak()
   
-#include "chapters/07_summary.typ"
+#include "chapters/06_summary.typ"
 #pagebreak()
 
-#include "chapters/08_discussion.typ"
+#include "chapters/07_discussion.typ"
 #pagebreak()
 
-
+#include "chapters/08_conclusion.typ"
 #pagebreak()
 
 // TODO Appendices

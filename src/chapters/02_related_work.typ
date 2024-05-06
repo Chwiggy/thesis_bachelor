@@ -44,7 +44,7 @@ In the following section I will explore, the aspects of this work already discus
     
     To embed a transit network into a more realistic model of an outside world, it can make sense to, in essence, combine the graph generated from a public transit network with one generated from the underlying road network. This makes some sense, as users of public transit generally require the usage of roads or paths to access a transit stop and many modes of public transit are dependent on street infrastructure themselves. Creating such a bipartite network then specifically makes sense for transit modes that are bound or predominantly bound to the street network such as buses @liu_spatial_2020.
     
-    Generally however, public transit with a few exceptions has a few complicating factors in comparison to road transit with individual modes. The primary difference here is that transit options are only sporadically available over the course of an hour or a day. These opportunities can be defined by a schedule stating departure and arrival times, but can also be given as a frequency or headway stating the interval with which transit opportunities arise @levinson_towards_2020 @conway_evidencetransit.
+    Generally however, public transit with a few exceptions has a few complicating factors in comparison to road transit with individual modes. The primary difference here is that transit options are only sporadically available over the course of an hour or a day. These opportunities can be defined by a schedule stating departure and arrival times, but can also be given as a frequency or headway stating the interval with which transit opportunities arise @levinson_towards_2020 @conway_evidencetransit @Conway_uncertainty_2018.
 
     On the flip side of this, routing between stations only is a rare case in realistic transit usage. In reality, of course origin and destination are often locations not directly on the transit network, but in a certain distance from a stop. Consequently, these journeys are often multimodal: transit users walk, bike, or drive to a stop in their vicinity, take a potentially multi-leg transit journey to arrive at a station or stop in the general vicinity from their destination, from where they can walk, bike or drive to their actual destination @verduzco_torres_public_2024. This requires consideration of modes like walking in network analysis.
 
@@ -64,24 +64,30 @@ In the following section I will explore, the aspects of this work already discus
     Isochrones are comprised of an area that can be reached within a certain time, where the actual isochrone delimits this area.
     Borrowed from metereologic isothermic lines, the isochrone is the line that denotes equal (greek: _iso_) time (greek: _chronos_) and would transform into a circle in a coordinate system transformed by travel time @levinson_towards_2020 @galton_construction_1881.
     A modern tool that provides such isochrone maps is for example ors @heigit_openrouteservice_2023. Using Isochrones as an easy to understand and interpretable measure of access in geoinformation systems has a much longer history however @osullivan_using_2000 @bauer_computing_2008 @zeng_visualizing_2014 @levinson_towards_2020. This might be because they are a visually simple tool that can be easily overlaid over geographic maps of a study area @zeng_visualizing_2014.
-      //TODO expand
+    
+    Isochrones then are a common tool to characterise the access opportunities from a specific point. As a spatial characteristic, this can be generalised to a access measure: Destination opportunities outside this circle are considered reachable and counted, opportunities without are left out.
+    This measure then encapsulates "all possible destinations within [a] travel cost threshold" @levinson_towards_2020.
+    That then is what @verduzco_torres_public_2024 would call an cummulative accesibility measure.
+    Besides cummulative there's also individual accessibility measures that are relevant for locations where not the access to a variety of locations is important, but the access to a specific location is of interest. This can be true for services that are common but not generally interchangeable either due to restrictions on their use or scarcity. For these measures the minimum travel cost is of relevance @verduzco_torres_public_2024.
 
 
 
   == Planning Indicators?
-  //TODO Aaaah
+  //TODO This needs more work
   
     
 
   == Transit Equity
+  //TODO write up
     - @liu_spatial_2020
     - US @kaplan_using_2014
       - travel time cubes @kaplan_using_2014
     - Network Planning @pieper_kreislauf_2021
   == Traveltime Datasets
+  //TODO write up
     - such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
     - all the impedance factors from @levinson_towards_2020 @conway_off_the_mta
-
+    - Temporal gap @verduzco_torres_public_2024.
 <end_of_chapter>
 
 #locate(loc => bib_state.at(query(<end_of_chapter>, loc).first().location()))

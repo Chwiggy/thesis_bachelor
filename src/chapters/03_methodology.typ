@@ -12,7 +12,7 @@
     To this end it was necessary to find at least on suitable case study. As my choice to approximate network characteristics here fell on routing with `r5py`, based on the conveyal routing engine @r5py, there were several data availability requirements. There needed to be a routable General Transit Feed Specification schedule (GTFS) @mobility_data_reference_2024 and suitable street network data from Open Street Map (OSM). For further details see @data below.
 
     First attempts at routing were based in Heidelberg, Germany arbitrarily.
-    After fine tuning the process in Bonn, Germany, I made the decision to use Heidelberg again for the final data for this thesis, based on my personal familiarity with Heidelberg and its transit network.
+    After fine tuning the process in Bonn, Germany (mostly due to concerns over point of interest like school locations), I made the decision to use Heidelberg again for the final data for this thesis, based on my personal familiarity with Heidelberg and its transit network.
     As this thesis does not include any measures to verify the data acquired through routing with an empircal sample of real life experiences, personal experience and familiarity at least allowed for checks against my own experience and intuition.
 
     // TODO better map of Heidelberg
@@ -52,22 +52,29 @@
       The larger drawback these carry however is that these datasets are incredibly large, and add a lot of overhead to routing just within the city boundaries of Heidelberg. To use them without taking up too much computational power it is necessary to crop them by a bounding box first.
       In the end however, these cropped datasets are the only option that provides recency and regular updates as well as all the regular public transport services within the city of Heidelberg.
 
-      - osm files from geofabrik @geofabrik_gmbh_geofabrik_2018 downloadad with @tenkanen_pyrosm_2023
-      - VGI quality concerns
+      `r5py` also needs a street network for routing. This data needs to be supplied as an OSM protocoll buffer file `.pbf`. These are available from a few different vendors. `BBBike.org` offers both pre-rendered downloads of specific areas usually in the order of cities, as well as custom area downloads by e-mail @schneider_bbbikeorg_2024. Unfortunately Heidelberg was not in the pre-rendered downloads. Geofabrik too offers various downloads of preselected areas @geofabrik_gmbh_geofabrik_2018. These areas range in size from local administrative boundaries to whole continents. Unlike `BBBike.org`, geofabrik offfers an index of available download with geospatial extents. Out of an obsession with automation geofabrik was chosen as a supplier of OSM `,pbf`-files and downloaded with `pyrosm` @tenkanen_pyrosm_2023.
+      
+      OSM is voluntarily supplied geoinformation data. As such, there are quality concerns associated with osm data, like potentially missing or out of date information @de_lange_geoinformatik_2020. For Heidelberg, Germany, street network data is generally both up to date, as well as complete. This allows for adequate routing for walked legs of itineraries within public transit journeys.
       
     === Origins and Destinations <endpoints>
-      - hexgrids from h3pandas @dahn_h3pandas_2023 based on uber's implementation of them
-      - no point of interests due to complexity.
-      - h3 pandas @dahn_h3pandas_2023
-      - h3 cell to h3 cells with populations excluded or not
+      Finally, for routing there need to be origin and destination points. For building suitable model itineraries as suggested in @levinson_towards_2020, it would have been interesting to find suitable point of interest datasets. However for a general overview of connectivity, locations are more interesting, and also generally more readily available.
+      
+      The easiest choice for this is overlaying grid cells. For this the choice fell on hexagonal grid cells for their translational symmetries in regards to cartesian distance between all adjacent cells. For this hexgrids for the aroa of Heidelberg were acquired from `h3pandas` @dahn_h3pandas_2023. For these cells population density data was acquired from the Global Human Settlement (GHS) project @schiavina_ghs-pop_2023.
 
 
-  == Processing
+  == Processing 
+    With all this data it becomes possible to calculate travel time matrices for multimodal public transport journeys with `r5py`. The general flow of data as described in @processing_chart, was primarily contained within a `python` application running in a `docker` container, that could run on a linux server. The only exceptions were the supply of a suitable GTFS schedule dataset, and the supply of the right tiles from the GHS layer dataset.
+
+    The large DELFI GTFS dataset was cropped to the general area of Heidelberg to reduce computational overhead for the travel time matrix routing. For this, I used the `gtfs-general` command line tool @psotta_michaelsjpgtfs-general_2024. Similarly osm `.pbf` files acquired from geofabrik were, this time automatically, cropped using `osmosis` @openstreetmap_osmosis_2023 if they were larger than a filesize limit based on the locally available computing power.
+
+    Both the OSM data and the gtfs data then were supplied as properties to the `r5py` class `TransitNetwork`. A departure date was automatically chosen then out of the `r5py TransitNetwork` automatically based on a few heuristics, to pick an arbitray non-special weekday. The date arrived at by this process was /* TODO insert date*/. For this date a departure time was chosen for each hour with a departure time window of 60 minutes, as such covering the entire day.
+     
     #figure(
       box(
         diagram(
           spacing: (10pt, 20mm),
           node((0,0), [Study Area], shape: diamond, fill: teal.lighten(50%), stroke: teal, name: <area>),
+          node((1.5,0), [GHS Population data], shape: hexagon, fill: orange.lighten(50%), stroke: orange, name: <ghs>),
           node((0,1), [GTFS Data], shape: hexagon, fill: orange.lighten(50%), stroke: orange, name:<gtfs>),
           node((1,1), [pyrosm], shape: pill, fill:red.lighten(50%), stroke: red, name:<pyrosm>),
           node((2,1), [Geofabrik OSM data], shape: hexagon, fill: orange.lighten(50%), stroke: orange, name: <osm>),
@@ -75,7 +82,8 @@
           edge(<pyrosm>, <osm>, "->", "downloads"),
           edge(<area>, <gtfs>, "->", "location"),
           node((3,0), [h3pandas], shape: pill, fill: red.lighten(50%), stroke: red, name: <h3pandas>),
-          edge(<area>, <h3pandas>, "->", "area"),
+          edge(<area>, <ghs>, "->", "area"),
+          edge(<ghs>, <h3pandas>, "->", "population grid"),
           node((0,2), [size], shape: diamond, fill: teal.lighten(50%), stroke: teal, name: <gtfssize>),
           node((0,3), [gtfs-general], shape:pill, fill:red.lighten(50%), stroke: red, name: <gtfscrop>),
           node((1,3), [r5py network], shape:hexagon, fill:orange.lighten(50%), stroke: orange, name: <transitnetwork>),
@@ -94,7 +102,7 @@
           edge(<h3pandas>, <cells>, "->", "cells"),
           edge(<cells>, (1,4), "->", [destinations & origins]),
           edge(<transitnetwork>, (1,4), "->", "network", bend:-20deg),
-          edge(<transitnetwork>, (1,4), "->", "departure_time", bend:20deg),
+          edge(<transitnetwork>, (1,4), "->", "departure time", bend:20deg),
           node((1,5), [dataframe], shape: hexagon, fill: green.lighten(50%), stroke: green, name: <results>),
           edge((1,4), <results>, "->", "cell to cell travel times"),
           edge(<cells>, <results>, "->", "cells", bend: 15deg)
@@ -102,8 +110,9 @@
       ),
       caption: [Flowchart describing the data processing done for routing with r5py]
     ) <processing_chart>
-  
-    The data as acquired then was processed with various tools as detailed in @processing_chart
+
+
+    For each of these departure times, a travel time matrix was calculated from the approximated centre of each h3pandas cells to all other h3pandas cells. Both the median, as well as the 10th and 90th percentile of travel time were extracted, and then recombined with the geographic data from h3pandas dataframe (see @processing_chart).
   
   <end_of_chapter>
 

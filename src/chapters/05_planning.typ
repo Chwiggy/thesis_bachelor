@@ -5,7 +5,7 @@
   == Motivation
     - see @verduzco_torres_public_2024
   == Processing
-    To measure these differences, I performed essentially the same processing as for mean travel times in @processing but taking the difference between the 90th and 10th percentile of r5py @r5py travel times according to @TravelTimeEq as seen in @Percentile_Difference.
+    To measure these differences, I performed essentially the same processing as for mean travel times in /*TODO reference processing*/ but taking the difference between the 90th and 10th percentile of r5py @r5py travel times according to /*TODO reference TravelTimeEq */ as seen in @Percentile_Difference.
 
     $ P_c = (sum C_d\("90th"\)-C_d\("10th"\))/(N_c-1) $ <Percentile_Difference>
     
@@ -20,7 +20,7 @@
 
     === Temporal
       #figure(image("../figures/Heidelberg_Difference_MT.svg"), caption: [Differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
-        - As @funky_differences shows the impact of planning over the course of the day is much more variable than than the average travel times based on a median travel time over the course of an hour (compare also @daily_travel_time).
+        - As @funky_differences shows the impact of planning over the course of the day is much more variable than than the average travel times based on a median travel time over the course of an hour (compare also /*TODO reference daily_travel_time*/).
 
 <end_of_chapter>
 
