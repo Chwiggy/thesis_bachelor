@@ -20,36 +20,6 @@
     margin: (left: 30mm, right: 25mm, top: 30mm, bottom: 30mm),
     numbering: none,
     number-align: center,
-    header: align(
-      right,
-      [
-        #locate(
-        loc => [
-          // find first heading of level 1 on current page
-          #let first-heading = query(heading.where(level: 1), loc).find(h => h.location().page() == loc.page())
-          #let last-heading =  query(heading.where(level: 1), loc).rev().find(h => h.location().page() == loc.page())
-          #{
-            if not first-heading == none {
-              ht-first.update([
-                  // change style here if update needed section per section
-                  (#counter(heading).at(first-heading.location()).at(0)) #first-heading.body
-              ])
-              ht-last.update([
-                  // change style here if update needed section per section
-                  (#counter(heading).at(last-heading.location()).at(0)) #last-heading.body
-              ])
-            // if one or more headings on the page, use first heading
-            // change style here if update needed page per page
-            [#ht-first.display()]
-        } else {
-            // no headings on the page, use last heading from variable
-            // change style here if update needed page per page
-            [#ht-last.display()]
-        }}
-        ]
-        )
-      ]
-      )
   )
   set text(font: "Crimson Text", lang: "en", size: 12pt)
   set math.equation(numbering: "(1)")
@@ -188,10 +158,43 @@
 
 
   // body
-  set page(numbering: "1")
+  set page(
+    numbering: "1",
+    header: align(
+      right,
+      [
+        #locate(
+        loc => [
+          // find first heading of level 1 on current page
+          #let first-heading = query(heading.where(level: 1), loc).find(h => h.location().page() == loc.page())
+          #let last-heading =  query(heading.where(level: 1), loc).rev().find(h => h.location().page() == loc.page())
+          #{
+            if not first-heading == none {
+              ht-first.update([
+                  // change style here if update needed section per section
+                  (#counter(heading).at(first-heading.location()).at(0)) #first-heading.body
+              ])
+              ht-last.update([
+                  // change style here if update needed section per section
+                  (#counter(heading).at(last-heading.location()).at(0)) #last-heading.body
+              ])
+            // if one or more headings on the page, use first heading
+            // change style here if update needed page per page
+            [#ht-first.display()]
+        } else {
+            // no headings on the page, use last heading from variable
+            // change style here if update needed page per page
+            [#ht-last.display()]
+        }}
+        ]
+        )
+      ]
+      )
+  )
   counter(page).update(1)
   set block(above: 2em)
   set par(justify: true, first-line-indent: 1em, leading: 1em)
+  set figure(placement: auto)
 
   
 
