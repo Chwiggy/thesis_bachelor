@@ -54,7 +54,7 @@
 
     First of all, I will focus on the spatial pattern of mean travel times, to answer the question if the proposed indices can capture observable patterns in the traffic flow of the city. There are two hypothesis associated with this question:
       + Mean Travel Times cannot capture transit service patterns at a given point in time
-      + Outlying areas have generally worse accessibility across all times of the day than geographically central locations. For Heidelberg this would mean that Hauptbahnhof and Bismarckplatz alway have a lower mean travel time than areas farther out.
+      + Outlying areas have generally worse accessibility across all times of the day than geographically central locations. For Heidelberg this would mean that Hauptbahnhof and Bismarckplatz always have a lower mean travel time than areas farther out.
     Second, focussing on the travel planning indicator, I will try to answer if the planning indicator can be a useful measure of transit service in a given area.
     #set enum(start: 3)
       + The planning indicator aligns with accissibility indicator, as in the most central parts of the city will also have the least need to plan journeys
