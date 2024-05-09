@@ -25,10 +25,22 @@
       #figure(image("../figures/Boxplots_Difference.svg"), caption: [Boxplot of travel times grouped by neighbourhoods.]) <boxplot_difference>
 
     === Temporal
-      //TODO start here, copy from access
+      Moving on to temporal variation across the day @funky_differences, one can again notice a rough three phase structure to the data. For the travel time differences however, this structure is much noisier. The three parts roughly match the parts already observed with trave times in /*reference previous chapter*/:
+      + from midnight until 03:00 local time, travel time differences seeem generally low under 10 minutes, reaching their lowest at 3:00.
+      + Around 04:00 travel time differences increase sharply. Their spread increases to between 5 and 30 minutes during the day until 17:00 local time.
+      + After a short dip in travel time differences at 17:00 the spread of travel time differences increases even more strongly until midnight. At 19:00 local time peak travel time differences hit 40 minutes, while low travel time differences drop below 5 minutes.  
+
       #figure(image("../figures/Heidelberg_Difference_MT.svg"), caption: [Differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
-        - As @funky_differences shows the impact of planning over the course of the day is much more variable than than the average travel times based on a median travel time over the course of an hour (compare also /*TODO reference daily_travel_time*/).
-      #figure(image("../figures/pd_summary_stats_all.svg"), caption: [Average Travel Time Difference for every cell in Heidelberg])
+
+      #figure(image("../figures/Clean_pd_summary_stats_all.svg"), caption: [Average Travel Time Difference for every populated cell in Heidelberg, with standard deviation]) <averege_differences>
+
+      Reducing the plot to the average cell with a population density above 5 people per square kilometre (compare @averege_differences), yields a much cleaner picture. Only a few populated cells exhibit a volatile change in travel time difference now. For most populated cells travel time differences decrease to near 0 during the night, to rise to general levels around 15 minutes during the rest of the day. Only at the edge times in the very early morning and the post rush-hour evening average travel time differences seem to be slightly elevated above 15 minutes.
+
+      
+      #figure(image("../figures/clean_select_HD_DI_boroughs.svg"), caption: [Travel time differences averaged for populated cells by select districts]) <borough_differences>
+      Looking at a plot by borough (compare @borough_differences), this pattern generally holds. Notably, central districts like Altstadt and Weststadt experience less of a early morning and evening bump in travel time differences than less central districts like Handschuhsheim or Emmertsgrund.      
+
+
 <end_of_chapter>
 
 #locate(loc => bib_state.at(query(<end_of_chapter>, loc).first().location()))
