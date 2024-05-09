@@ -1,11 +1,11 @@
 #import "../preamble.typ": *
 
-= Summary of Results
+= Hypotheses
 
   == Travel Times
     
       
-  == planning data
+  == Planning data
   // TODO needs a better name
       
 <end_of_chapter>

@@ -18,6 +18,8 @@
   == Planning Indicator
     - Handschuhsheim breaks expectations
     - central in transit network despite not located in the centre of town. Various tram lines connecting to a lot of area, means high frequency of transit opportunities (around 30 an hour)
+    - for a lot of unpopulated cells low travel time differences can either mean a lot of walking is involved in any itinerary, as for example at night, or that there is multiple possible entry points into the public transit system in roughly equal walking distance. Unfortunately this skews the idea of a simple planning indicator as the decision in which direction to walk preclude the usage of the other entrypoint.
+    - In populated areas the planning indicator largely aligns with common tram and bus schedule headways.
   == Temporal Variation in Planning Indicator
     - so what/what does this indicator describe that we don't get from the pure schedule already?
   == General Limitations

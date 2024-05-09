@@ -23,7 +23,7 @@
     Below I will talk about the resulting travel time matrices in two sections. The first concerns the raw insights from travel time calculations. primarily centered around discussions of the travel time matrix at 17:00 local time. The second section then summarises insights gained from the differences in travel time matrices over the course of the day.
 
     === Travel Times
-      Looking of a map of the travel time matrix at 17:00 local time (see @map_17_tt), there's a clear pattern visible. The brightest spots with the lowest average cell to cell travel times centre around central locations within Heidelberg, specifically around the central station and the central interchange hubs Stadtbücherei / Römerkreis Süd and Bismarckplatz. Here average travel times to all cells are as low as 48 minutes. 
+      Looking of a map of the travel time matrix at 17:00 local time (see @map_17_tt), there is a clear pattern visible. The brightest spots with the lowest average cell to cell travel times centre around central locations within Heidelberg, specifically around the central station and the central interchange hubs Stadtbücherei / Römerkreis Süd and Bismarckplatz. Here average travel times to all cells are as low as 48 minutes. 
       
       Notably at the central station there is a cell which lands in the middle of the western station throat, from which no other cells than the cell itself are reachable, and therefore technically has an average travel time of 0 minutes. This cell was discounted for analysis.
 
