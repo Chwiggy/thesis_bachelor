@@ -46,15 +46,25 @@
       #figure(image("../figures/Boroughs_TravelTime_Map17.svg"), caption: [Chloropleth map of Heidelberg boroughs showing average travel times in minutes], kind: "Map", supplement: "Map") <borough_map>
 
     === Temporal Variability
-      Looking at a plot of all cells' average travel times over the course of the day, it is hard to make out individual cells among the 1301 different locations (compare @daily_travel_time). There are howeverr three distinct sections to the graph:
+      As I calculated travel times for all 24 hour slots of the day, we can look at the changes to these travel time patterns over the course of the day. Looking at a plot of all cells' average travel times then, it is hard to make out individual cells among the 1301 different locations (compare @daily_travel_time). There are however three distinct sections to the graph:
       + there appears to be a night section from midnight up until about 03:00 local time. The spread of travel times seems fairly low within this time span, but travel times are fairly high between 70 and 90 minutes.
       + between 04:00 and about 17:00 local time, the span of average travel times increases quite severely, now ranging from under 50 minutes to curiously about 100 minutes. Several locations seem to exhibit volatile changes within that span, while others remain steady.
       + after 17:00 local time, the spread of average travel times reduces again until midnight. Notably, well connected locations seem to gain travel times first.
-      #figure(image("../figures/Heidelberg_TravelTime_MT17.svg"), caption: [Plot of average travel times in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <daily_travel_time>
+            
+      #box(grid(columns: 1,
+        [#figure(image("../figures/Heidelberg_TravelTime_MT17.svg"), caption: [Plot of average travel times in Heidelberg from cell to cell, over the course of a weekday.], placement:auto) <daily_travel_time>],
+        [#figure(image("../figures/clean_tt_summary_stats_all.svg"), caption: [Summary plot for all of Heidelberg.])<summary_plot>]
+      ))
       
-      #figure(image("../figures/tt_summary_stats_all.svg"), caption: [Summary plot for all of Heidelberg.])
-      #figure(image("../figures/HD_TT_boroughs_MT17.svg"), caption: [Plot of average travel times in Heidelberg across the day grouped by borough.])
+      
+      A similar picture emerges when plotting, summary statistics for the cells above the population threshhold. @summary_plot shows the average travel time and a one standard deviation interval. Again, there seem to be multiple phases of travel time regimes:
+      + Until 03:00 local time night time travel times are relatively high with a low spread ov travel times in different cells.
+      + Again at around 04:00 local time the spread of travel times increases and travel times generally decrease over the course of the day. Curiously enough however at 04:00 local time, travel times are at their highest. Potentially indicating a gap between reduced night time services, and morning services kicking in. Notably, without the unpopulated cells, the spread of travel times is reduced and only a few cells exhibit longer travel times than during the night.
+      + After 17:00 travel times increase again. Notably, for some unpopulated cells they decrease again between 23:00 and midnight.
 
+      #figure(image("../figures/select_HD_TT_boroughs.svg"), caption: [Plot of average travel times in select neighbourhoods of Heidelberg across the day without low population cells.]) <borough_time>
+
+      Grouping populated cells by borough reveals a similar general pattern. With 15 boroughs the plot still remains a bit hard to parse. Selecting a few representative boroughs for @borough_time, lets us make. Notably there seem to be two groups, low travel time boroughs like Altstadt or Weststadt. And boroughs which ove the course of the day do not lose as much travel time, like Wieblingen or Ziegelhausen. Curiously enough, the more central boroughs do not experience the 04:00 local time uptick in travel times, the less central boroughs experience. Another curiosity is the uptick in travel time in a few places like Emmertsgrund right around noon.
 
 
 <end_of_chapter>

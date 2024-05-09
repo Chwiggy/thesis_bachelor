@@ -15,6 +15,7 @@
 #import "preamble.typ": *
 #bib_state.update(none)
 
+#set figure(placement: auto)
 #include "chapters/01_introduction.typ"
 #pagebreak()
 
@@ -56,3 +57,10 @@
 
 #include "appendices/03_code.typ"
 #pagebreak(weak: true)
+
+= Figures
+== Images
+#set par(first-line-indent: 0em)
+#outline(title: none, target: figure.where(kind: image))
+== Maps
+#outline(title: none, target: figure.where(kind: "Map"))

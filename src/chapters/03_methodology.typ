@@ -16,7 +16,7 @@
     As this thesis does not include any measures to verify the data acquired through routing with an empircal sample of real life experiences, personal experience and familiarity at least allowed for checks against my own experience and intuition.
 
     // TODO better map of Heidelberg
-    #figure(image("../figures/basemap.png"), caption: [Overview map of Heidelberg (OpenStreetMap contrubutors)], kind: "map", supplement: "Map") <overview>
+    #figure(image("../figures/basemap.png"), caption: [Overview map of Heidelberg (OpenStreetMap contrubutors)], kind: "Map", supplement: "Map") <overview>
 
     For a transit study, Heidelberg, a city of roughly 130,000 people with a large student population, offers a variety of modes of public transit. There are buses and trams operated by the local municpal transit company rnv, regional buses, as well as multiple S-Bahn stations with regular commuter trains.
     Beyond that Heidelberg offers a few different urban spaces (see @overview).

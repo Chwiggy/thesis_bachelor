@@ -194,7 +194,7 @@
   counter(page).update(1)
   set block(above: 2em)
   set par(justify: true, first-line-indent: 1em, leading: 1em)
-  set figure(placement: auto)
+  
 
   
 
