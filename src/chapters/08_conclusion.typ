@@ -1,31 +1,12 @@
 #import "../preamble.typ": *
 
-= Final Remarks
-  == Conclusion
-    - Well this turned out to be a bit boring ...
-  == Outlook
-    - implementing a analysis accounting for delay and cancellation data would help to get a better picture of lived realities
-    - implementing an analysis for scenarios based on more specific scenarios of day to day life
-    - planning data can be helpful for planning new services, including needed night services, or stops
-    - introducing points of interest to the analysis for clearer scenarios
-    === Patterns
-      Geographically, I already did the following clusters:
-        - manually by neighbourhoods
-        - manually by time chunks
-      Automatic clustering
-      Optional bits:
-      - Dimensionality reduction PCA or UMAP @mcinnes_umap_2018 based on the maths from @mcinnes_umap_2020
-      - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
-      - Clustering K-Means or HDBSCAN @mcinnes_hdbscan_2016 based on an algorithm proposed by @campello_density-based_2013
-    === Detailed Routing
-    To illustrate and illucidate some of the results of the above processing, I also provided some handpicked routing examples based on the same gtfs feed @delfi_deutschlandweite_2023.
-    These detailed routings take h3 cells @dahn_h3pandas_2023 that i deemed interesting as a departure location and look at times and specific routes to arbitrary central locations within Heidelberg.
-    Routing again was provided by r5py @r5py.
+= Conclusion
+    As seen above, there is still a lot of work to be done. And while the general travel time indiactor seems to work as a useful tool to gain informaiton about general connectivity in specific locations, the planning indicator unfortunately still seems to need a lot of work to become a useful and non-redundant measure of transit accessibility.
 
-    === Inequality measures
-    - Lorentz curves
-    === Spatial statistics
-    - I wanna use Moran's I so badly
+    As such the travel time difference indicator manages to convey information about general service patterns like the average headway of transit services, but lacks information that could have been gained by much simpler metrics too, that involve less intensive calculations. This is less true for the general mean travel time indicator that displays patterns, that are much more easy to distinguish and interpret.
+
+    These kind of calculations then can play a vital role in informing the public but also in informing decisions of policy makers and transit agencies in their decision making processes. However, to give a full picture, a much more intensive study of travel behaviour, model itineraries and effects of specific tranist arrangements is necessary. As such this project feels, like an exercise in futility: trying to boil down hugely complex systems into easy indicators. In the end it probably needs a whole set of indicators to understand the workings of a transit system and all it's varied effects on the people who are supposed to use it.
+ 
 <end_of_chapter>
 
 #locate(loc => bib_state.at(query(<end_of_chapter>, loc).first().location()))
