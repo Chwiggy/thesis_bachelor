@@ -26,8 +26,8 @@
 
     === Temporal
       Moving on to temporal variation across the day @funky_differences, one can again notice a rough three phase structure to the data. For the travel time differences however, this structure is much noisier. The three parts roughly match the parts already observed with trave times in /*reference previous chapter*/:
-      + from midnight until 03:00 local time, travel time differences seeem generally low under 10 minutes, reaching their lowest at 3:00.
-      + Around 04:00 travel time differences increase sharply. Their spread increases to between 5 and 30 minutes during the day until 17:00 local time.
+      + from midnight until 03:00 local time, travel time differences seeem generally low under 10 minutes, reaching their lowest at 3:00. In these very early hours of the day, as traffic from the day before comes to a close, At 00:00 the train stations are clearly visible as places in which there still is a difference between favourable departure times and less favourable departure times. The rest of the area, seems to be largely locked into itineraries with a lot of walking. At 01:00 this only concerns the central station and the S-Bahn stop Pfaffengrund/Wieblingen.
+      + Around 04:00 travel time differences increase sharply. Their spread increases to between 5 and 30 minutes during the day until 17:00 local time. Here outlying districts experience their worst travel times.
       + After a short dip in travel time differences at 17:00 the spread of travel time differences increases even more strongly until midnight. At 19:00 local time peak travel time differences hit 40 minutes, while low travel time differences drop below 5 minutes.  
 
       #figure(image("../figures/Heidelberg_Difference_MT.svg"), caption: [Differences in travel times between 90th and 10th percentile in Heidelberg from cell to cell with no population mask, over the course of a weekday.]) <funky_differences>
