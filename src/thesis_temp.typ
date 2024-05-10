@@ -4,8 +4,6 @@
     authors: (),
     date: none,
     logo: none,
-    abstract_en: "",
-    abstract_de: "",
     bib: "",
     body,
 ) = {
@@ -143,10 +141,10 @@
   heading([Abstracts], level: 1, numbering: none)
     heading([English], level: 2, numbering: none, outlined: false)
       set par(justify: true)
-      par(justify: true, abstract_en)
+      include "abstract_en.typ"
     heading([German], level: 2, numbering: none, outlined: false)
       set text(lang: "de")
-      par(justify: true, abstract_de)
+      include "abstract_de.typ"
       set text(lang: "en")
   pagebreak()  
 

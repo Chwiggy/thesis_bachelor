@@ -8,8 +8,6 @@
     (name: "Emily C. Wilke",matr: "35xxxxxxxx", email: "emilycwilke@gmail.com", affiliation: "Ruprecht-Karls-Universität Heidelberg", postal: "xxxxxxx"),
   ),
   date: [#datetime.today().display()],
-  abstract_en: "test oh my oh my",
-  abstract_de: "",
 )
 
 #import "preamble.typ": *
