@@ -1,9 +1,12 @@
 #import "../preamble.typ": *
 
 = Discussion
-  Well, what does that mean for these two potential indicators of travel time? In the following section I discuss these indicators and see how they fit in with results from other studies. First again, this will concern the mean travel time indicator, and second the travel time difference indicator.
+  Well, what does that mean for these two potential indicators of travel time? In the following sections I discuss these indicators and see how they fit in with results from other studies. First again, this will concern the mean travel time indicator, and second the travel time difference indicator. Beyond that I talk about general limitations and provide an outlook of things that could still be done.
   == Mean Travel Times
-    As expected this indicator seems a useful proxy for the connectivity of specific locations. As an indicator of general connectivity however it lacks the specificity of an measure of transit access with a strong model of itineraries that correspond to lived realities @levinson_towards_2020. It can, however, serve as a general indicator for locations like boroughs. As such the results fit in with other more generalised travel time datasets @tenkanen_longitudinal_2020.
+    As expected, this indicator seems a useful proxy for the connectivity of specific locations.
+    As an indicator of general connectivity however it lacks the specificity of an measure of transit access with a strong model of itineraries that correspond to lived realities @levinson_towards_2020.
+    It can, however, serve as a general indicator for locations like boroughs.
+    As such, the results fit in with other more generalised travel time datasets @tenkanen_longitudinal_2020.
 
     The temporal variablity is interesting in so far as it sheds light on some often missed effects of travel at uncommon times. Research often focuses on peak hour travel, that is either the morning rush hour or the evening rush hour. And while an overproportional amount of travel happens within the morning rush hour @verduzco_torres_public_2024, there are always populations and scenarios that require travel add more odd hours. This can include work at hours that aren't the common nine to five office job, like shift work in manufacturing, health care, emergency services, or public transit jobs themselves, but this can also inclued free time activities, like evening events, visiting friends, parties etc. 
 
@@ -17,56 +20,42 @@
     That is they may have preferences on where and how they like to spend their travel time.
     This may go so far as taking objectively worse routes to reach their destinations to avoid wait times at interchanges.
 
-    Beyond the difficulty of measuring percieved time, it also stands to reason, that travel time is not the only cost factor that public transit users and non-users take into account. Fare costs come up as an obvious cost factor quite often @conway_off_the_mta. To commuters with transit subscriptions in place like Heidelberg with integrated ticketing these differences might not play a huge role, but for an occasional or only potential user deciding between using a private car and public transit fare rules can make a considerable differennce. And as such, the effort of figuring out a fare system can become a cost factor in its own right. 
+    Beyond the difficulty of measuring percieved time, it also stands to reason, that travel time is not the only cost factor that public transit users and non-users take into account. Fare costs come up as an obvious cost factor quite often @conway_off_the_mta. To commuters with transit subscriptions in place like Heidelberg with integrated ticketing these differences might not play a huge role, but for an occasional or only potential user deciding between using a private car and public transit fare rules can make a considerable differennce. And as such, the effort of figuring out a fare system can become a cost factor in its own right. Generally
 
   == Planning Indicator
-    - Handschuhsheim breaks expectations
-    - central in transit network despite not located in the centre of town. Various tram lines connecting to a lot of area, means high frequency of transit opportunities (around 30 an hour)
-    - for a lot of unpopulated cells low travel time differences can either mean a lot of walking is involved in any itinerary, as for example at night, or that there is multiple possible entry points into the public transit system in roughly equal walking distance. Unfortunately this skews the idea of a simple planning indicator as the decision in which direction to walk preclude the usage of the other entrypoint.
-    - In populated areas the planning indicator largely aligns with common tram and bus schedule headways.
-  == Temporal Variation in Planning Indicator
-    - so what/what does this indicator describe that we don't get from the pure schedule already?
+    Similar limitations apply to the planning indicator. Unfortunately here the usefulness of the indicator remains in question. Initially, the low travel time difference values for Handschuhsheim intrigued me, and explanations like the three tram lines converging at Hans-Thoma-Platz came to mind. Unfortunately the specifically low travel time difference cells don't actually lie within the populated area of Handschuhsheim, but in the hills to the east of Handschuhsheim. And while these cells aren't central to the transit network, they lie basically exactly at the line of equidistance between two stops at other ends of the city. Thus, starting from such a point there are two or more options for stops to walk to to catch a transit vehicle. Unfortunately for the idea of using this value as a transit indicator this however means, that in such a place one needs to make a fairly informed decision about which direction to walk in to actually benefit from lower transit times. This then is not really an indicator of how easy it is to randomly start a journey from this cell, but rather just also a case which relies on planning, despite the low travel time difference.
+
+    For a lot of unpopulated cells then low travel time differences can either mean that there is multiple possible entry points into the public transit system in roughly equal walking distance, or that a lot of walking is involved in any itinerary, as for example at night. This again means that the travel time difference indicator, unfortunately does not capture an ability to just show up at a transit stop and take whatever transit comes next, but rather captures the minimal difference between different starting times for a very well planned walking leg to a specific transit stop.
+
+    In populated areas the planning indicator then largely aligns with common tram and bus schedule headways. At least, as long as there still is transit service within the vicinity. This then becomes a measure that might be much easier to extract from GTFS schedule data without the indirection of computationally intensive routing for a large number of departure and destination locations, especially, as this scales horribly for larger study areas. Applying the average headway for services in a direction to the stops catchment area, would be a much easier problem to solve computationally. As such this measure, as presented in this thesis, only makes sense as a biproduct of a general travel time dataset, like the mean travel time indicator.
+
+    Furthermore, this tool cannot capture some more obscure ideosyncracies of the german local transit system. Especially for outlying individual settlements, like Grenzhof, scheduled transit service might often be rendered in the form of scheduled on demand services called Ruftaxi @vrn_vrn_2017. These taxi service require a call beyond 60 minutes ahead of the intended departure, and as such completely break the idea of just showing up to a transit stop on a whim.
+
+    As a remaining silver lining, the indicator offers some insights into how, especially at times outside regular commute times, some more suburban areas of Heidelberg experience less favourable headways. Travelling from Ziegelhausen in the evening or very early morning for example, public transit users seem to face less favourable headways than travellers in the city centre.
+
   == General Limitations
-    - Lack of real world measures as Comparisons
-    - special point of interests like school data
-    - Focuses solely on door to door travel times and neglects other aspects of such journeys.
+    Multi-modal routing as done with `r5py` and the underlying `r5`-engine makes a few idealistic assumptions about the behaviour of transit users @tenkanen_longitudinal_2020. As described above, transit users don't necessarily value only objective travel time. But routing with r5 also makes other assumptions about the feasibility or desirabilty of certain routes. Routing this way assumes a rational traveller, that knows exactly where to go, always takes the routing option with the shortest travel time, and is perfectly informed about the route to take. This leaves little option for taking the more scenic route, avoiding specific areas due to safety concerns or their general unpleasantness, taking transit based on familiar routes or avoiding tight interchanges, or dealing with delays in public transit. While a tight interchange might make for a fast route, it might make for a particularly slow route if delays make the connection unreliable.
+
+    To gauge these differences between ideal routing and actual public transit behaviour it would have been useful to include real world transit usage data as a comparison to the routing results attained from `r5`. This is a general limitation of this kind of theoretical approach. Empirical tests of the results attained are needed to really make these results more robust or test their veracity. To illucidate some of the results of the routing, it might also be useful to explore optimal example routes in detalil and compare them to routes actually taken, or suggested by publically accessible transit routing apps.
    
+    Beyond that, there is some real life data that would make these results much more useful, but is sometimes hard to include.
+    For example, there is no reliability and delay data included in this analysis. Such data in a disaggregated form is, unfortunately, rarely openly available and might require setting up data scraping @kriesel_bahnmining_2019.
+    I also excluded public transit fare structures as implemented in @conway_off_the_mta. While these are a common cost factor used next to travel time @levinson_towards_2020, they are complicated to implement for a simple analysis like this, especially when GTFS schedule data doesn't include the optional fare rules, dataset. And a focus on more detailed model itineraries could help make this a much more robust look into less stereotypical nine to five commute scenarios. Unfortunately point of interest data comes with its own challenges.
 
-    There's no reliability and delay data included in this analysis as such data in a disaggregated form is rarely openly available and often requires setting up data scraping @kriesel_bahnmining_2019.
-    We also excluded public transit fare structures as implemented in @conway_off_the_mta. While these are a common cost factor used next to travel time @levinson_towards_2020, they are complicated to implement for a simple analysis like this.
+  == Outlook
+    So what can be done to improve the robustness and veracity of these results. First the analysis could be expanded by differenc model scenarios. This could include school locations, which didn't make the cut because good school data with a distinction of school types was not available for Heidelberg, but for Bonn @ministerium_fur_schule_und_bildung_nrw_grunddaten_2016. However, this could also include a myriad of other point of interests for interesting travel scenarios. 
+    
+    Beyond that it seems useful to test these results against real world data. This could involve a more heavy usage of spatial statistics to correlate results with other measures like socio-economic data for example @pereira_is_2023. Just to test the assumption of the routing approach however, actual public transit usage data would be fairly useful. Unfortunately, this data rarely exists in a openly accessible way -- especially not in transit fare systems, like Germany, where there is no rigorous system of ticket checks or counting passengers. 
 
-  == Outlook  
-    - lacks data including
-      - comparisons to cars
-      - ride hailing services see @barajas_not_2021
-      - related on demand services (trial at rohrbach and schlierbach) @nahverkehrsgesellschaft_baden-wurttemberg_mbh_-demand-verkehr_2024 @rhein-neckar-verkehr_gmbh_fips_2024
-      - Lack of consideration for service quality: What about services in the gtfs file that need advanced booking of up to an hour, like transport association scheduled on-call taxi services @vrn_vrn_2017.
-    - using travel time cubes for more detailed transit accessibility analysis offers a lot more detailed view of transit behaviours @kaplan_using_2014
-    - @kaplan_using_2014 tries to quantify transit inequalities with gini coefficients 
-      - _inequality_ being silly at times @graeber_dawn_2022.
+    Interesting could also be a comparison to dominant modes of transit like car traffic. This comparison of course carries the danger of reproducing the idea of car traffic as the standard mode of transportation, but it is also a useful comparison to understand why people might favour the usage of a car, beyond general societal assumptions about the 'freedom' that cars offer, or pricing.
+    In a similar vein, this analysis, at least in specific geographical contexts could include a comparison to ride hailing services @barajas_not_2021. For Heidelberg these play a subordinate role in transportation, but in a global context there are cities for which these are a common and feasible option of transportation.
+    
+    Beyond that in 2024, rnv introduced trial schemes for related on demand services in Rohrbach and Schlierbach @nahverkehrsgesellschaft_baden-wurttemberg_mbh_-demand-verkehr_2024 @rhein-neckar-verkehr_gmbh_fips_2024. These schemes are hard to capture within an analysis of scheduled transit based on GTFS datasets, but of course they extend mobility options for transit users, specifically in terms of the so called last mile problem. These schemes however add a lot of complexity with their extra fare rules, and requirements for making your demand known.
+      
+    Another pattern to explore, might be social inequalities in transit access. A common approach to this question is the use of Lorentz-curves and GINI coefficients @kaplan_using_2014 @pereira_is_2023. Measuring _inequality_ like this can be rather silly at times, and reinforce ideas of social inequality that might not always be useful to reinforce @graeber_dawn_2022. I calculated Lorentz curves for an earlier iteration of this project, but this fell off the scope of this thesis in the end.
 
-    - implementing a analysis accounting for delay and cancellation data would help to get a better picture of lived realities
-    - implementing an analysis for scenarios based on more specific scenarios of day to day life
-    - planning data can be helpful for planning new services, including needed night services, or stops
-    - introducing points of interest to the analysis for clearer scenarios
-    === Patterns
-      Geographically, I already did the following clusters:
-        - manually by neighbourhoods
-        - manually by time chunks
-      Automatic clustering
-      Optional bits:
-      - Dimensionality reduction PCA or UMAP @mcinnes_umap_2018 based on the maths from @mcinnes_umap_2020
-      - UMAP clustering prone to confabulations @generic_user_clustering_2018 @schubert_answer_2017.
-      - Clustering K-Means or HDBSCAN @mcinnes_hdbscan_2016 based on an algorithm proposed by @campello_density-based_2013
-    === Detailed Routing
-    To illustrate and illucidate some of the results of the above processing, I also provided some handpicked routing examples based on the same gtfs feed @delfi_deutschlandweite_2023.
-    These detailed routings take h3 cells @dahn_h3pandas_2023 that i deemed interesting as a departure location and look at times and specific routes to arbitrary central locations within Heidelberg.
-    Routing again was provided by r5py @r5py.
-
-    === Inequality measures
-    - Lorentz curves
-    === Spatial statistics
-    - I wanna use Moran's I so badly
+    Another approach to finding patterns in this data might be automatic clustering, and trying to find correlations with other patterns. For this dimensionality reduction with PCA or UMAP might be a usable approach @mcinnes_umap_2018 for clustering the cells with K-means or HDBSCAN @mcinnes_hdbscan_2016
+    
 <end_of_chapter>
 
 #locate(loc => bib_state.at(query(<end_of_chapter>, loc).first().location()))

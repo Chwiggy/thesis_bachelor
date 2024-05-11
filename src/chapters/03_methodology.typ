@@ -9,7 +9,7 @@
   // TODO add references to Related Work
 
   == Case Studies <case-study>
-    To this end it was necessary to find at least on suitable case study. As my choice to approximate network characteristics here fell on routing with `r5py`, based on the conveyal routing engine @r5py, there were several data availability requirements. There needed to be a routable General Transit Feed Specification schedule (GTFS) @mobility_data_reference_2024 and suitable street network data from Open Street Map (OSM). For further details see @data below.
+    To this end it was necessary to find at least on suitable case study. As my choice to approximate network characteristics here fell on routing with `r5py`, based on conveyal's `r5` routing engine @r5py, there were several data availability requirements. There needed to be a routable General Transit Feed Specification schedule (GTFS) @mobility_data_reference_2024 and suitable street network data from Open Street Map (OSM). For further details see @data below.
 
     First attempts at routing were based in Heidelberg, Germany arbitrarily.
     After fine tuning the process in Bonn, Germany (mostly due to concerns over point of interest like school locations), I made the decision to use Heidelberg again for the final data for this thesis, based on my personal familiarity with Heidelberg and its transit network.
@@ -67,7 +67,7 @@
 
     The large DELFI GTFS dataset was cropped to the general area of Heidelberg to reduce computational overhead for the travel time matrix routing. For this, I used the `gtfs-general` command line tool @psotta_michaelsjpgtfs-general_2024. Similarly osm `.pbf` files acquired from geofabrik were, this time automatically, cropped using `osmosis` @openstreetmap_osmosis_2023 if they were larger than a filesize limit based on the locally available computing power.
 
-    Both the OSM data and the gtfs data then were supplied as properties to the `r5py` class `TransitNetwork`. A departure date was automatically chosen then out of the `r5py TransitNetwork` automatically based on a few heuristics, to pick an arbitray non-special weekday. The date arrived at by this process was /* TODO insert date*/. For this date a departure time was chosen for each hour with a departure time window of 60 minutes, as such covering the entire day.
+    Both the OSM data and the gtfs data then were supplied as properties to the `r5py` class `TransitNetwork`. A departure date was automatically chosen then out of the `r5py TransitNetwork` automatically based on a few heuristics, to pick an arbitray non-special weekday. The date arrived at by this process was /* TODO insert date*/. For this date a departure time was chosen for each hour with a departure time window of 60 minutes, as such covering the entire day. Routing modes were set to walking and public transit to capture a common use case of public transit use, where transit users walk to the first stop of their itinerary, and walk from the last transit stop of their itinerary to their destination.
      
     #figure(
       box(
