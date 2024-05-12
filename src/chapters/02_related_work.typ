@@ -70,24 +70,15 @@ In the following section I will explore, the aspects of this work already discus
     That then is what @verduzco_torres_public_2024 would call an cummulative accesibility measure.
     Besides cummulative there's also individual accessibility measures that are relevant for locations where not the access to a variety of locations is important, but the access to a specific location is of interest. This can be true for services that are common but not generally interchangeable either due to restrictions on their use or scarcity. For these measures the minimum travel cost is of relevance @verduzco_torres_public_2024.
 
+  == Planning Indicators
+    Scheduling public transit services comes with a number of challenges, that affect the percieved service quality. Schedules generally need to balance economic resource constraints with a satisfactory service. For example running too few services on a busy route, can lead to overcrowding, and potentially to riders missing transit opportunities due to too full vehicles @grosfeld-nir_planning_1995. On the other hand running too few services can make public transit unattractive and hard to use, even if there are potential transit users. Running too few services then can squash demand, in the inverse of induced demand @lee_induced_1999 @szarata_public_2017. This so called headway elasticity can have a measurable effect on transit demand @litman_valuing_2008.
 
-
-  == Planning Indicators?
-  //TODO This needs more work
+    From the perspective then, not of a transit planner, but that of a geographer it seems useful to gauge the effects of these kind of service quality improvements. While estimating general connectivity by way of travel time matrix routing, it might be viable to use the micro-temporal variation of travel time results as a measure of the role planning plays in individual itineraries @verduzco_torres_public_2024. 
   
     
 
-  == Transit Equity
-  //TODO write up
-    - @liu_spatial_2020
-    - US @kaplan_using_2014
-      - travel time cubes @kaplan_using_2014
-    - Network Planning @pieper_kreislauf_2021
-  == Traveltime Datasets
-  //TODO write up
-    - such as @tenkanen_longitudinal_2020 and @verduzco_torres_public_2024
-    - all the impedance factors from @levinson_towards_2020 @conway_off_the_mta
-    - Temporal gap @verduzco_torres_public_2024.
+
+
 <end_of_chapter>
 
 #locate(loc => bib_state.at(query(<end_of_chapter>, loc).first().location()))
