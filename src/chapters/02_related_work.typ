@@ -1,7 +1,7 @@
 #import "../preamble.typ": *
 #set math.equation(numbering: "(1)")
 
-= Related Work
+= Related Work <related>
 In the following section I will explore, the aspects of this work already discussed in the literature at the intersection of transit accessibility and transit network analysis. This overview is necessarily incomplete, and in the face of various historical traditions of transit planning procedures can only give a sample of ideas present in a very active field of literature. First of all, this section is concerned with giving an overview of the literature that led to the formation of the ideas in this thesis. A discussion of competing ideas follows in a later chapter.
 
   == Access

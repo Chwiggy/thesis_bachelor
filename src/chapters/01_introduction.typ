@@ -33,7 +33,6 @@
     And not least, this means, that this thesis won't be free of these implicit or explicit value judgements either.
     Transit is an inherently political topic.
 
-    // TODO expand:
     As an exteriority to daily life, transport systems are hard to influence by an individual according to their own needs.
     With the strong link between transportation and the necessary built infrastructure, transit systems within their geographic location have a strong amount of inertia @holzapfel_urbanismus_2020.
     Historical decisions about the transport network therefor still have an outsized influence on the transit opportunities of modern people.
@@ -49,7 +48,7 @@
 
     This almost precludes the idea of an easy spatial measure of transit access based on individual experiences. However, with an idea focused on opportunities for social connection and social services, which generally tend to be spread more evenly across cities, and a focus on a singular urban space, it might be possible to characterise the nature of a transit system and its capacity to move people without an intense focus on individual points of interest. To this end, I employed statistical routing data based on conveyal engine @conway_evidencetransit.
 
-  == Research Questions
+  == Research Questions <hypo>
     Guiding this research, are a few research questions then, that I tried to answer with two indices one for average travel times and one trying to capture the need to plan journeys out before starting on an itinerary. For each research question there are a handful of hypotheses to test. Ideally this thesis can falsify some of these hypotheses.
 
     First of all, I will focus on the spatial pattern of mean travel times, to answer the question if the proposed indices can capture observable patterns in the traffic flow of the city. There are two hypothesis associated with this question:

@@ -5,8 +5,7 @@
 
 = Methodological Approach
   This thesis project started as an exploratory data analysis project, trying to find easy to implement metrics for public transit service coverage and accessibility with transit based on open source software and openly accessible data.
-  Starting points were prior considerations about closeness centrality and reach, as well as an interest in the temporal variability of transit services on the macro and micro scale. 
-  // TODO add references to Related Work
+  Starting points were prior considerations about closeness centrality and reach, as well as an interest in the temporal variability of transit services on the macro and micro scale (compare @related) . 
 
   == Case Studies <case-study>
     To this end it was necessary to find at least on suitable case study. As my choice to approximate network characteristics here fell on routing with `r5py`, based on conveyal's `r5` routing engine @r5py, there were several data availability requirements. There needed to be a routable General Transit Feed Specification schedule (GTFS) @mobility_data_reference_2024 and suitable street network data from Open Street Map (OSM). For further details see @data below.
@@ -15,8 +14,7 @@
     After fine tuning the process in Bonn, Germany (mostly due to concerns over point of interest like school locations), I made the decision to use Heidelberg again for the final data for this thesis, based on my personal familiarity with Heidelberg and its transit network.
     As this thesis does not include any measures to verify the data acquired through routing with an empircal sample of real life experiences, personal experience and familiarity at least allowed for checks against my own experience and intuition.
 
-    // TODO better map of Heidelberg
-    #figure(image("../figures/basemap.png"), caption: [Overview map of Heidelberg (OpenStreetMap contrubutors)], kind: "Map", supplement: "Map") <overview>
+    #figure(image("../figures/basemap.svg"), caption: [Overview map of Heidelberg (OpenStreetMap contrubutors)], kind: "Map", supplement: "Map") <overview>
 
     For a transit study, Heidelberg, a city of roughly 130,000 people with a large student population, offers a variety of modes of public transit. There are buses and trams operated by the local municpal transit company rnv, regional buses, as well as multiple S-Bahn stations with regular commuter trains.
     Beyond that Heidelberg offers a few different urban spaces (see @overview).
@@ -62,12 +60,12 @@
       The easiest choice for this is overlaying grid cells. For this the choice fell on hexagonal grid cells for their translational symmetries in regards to cartesian distance between all adjacent cells. For this hexgrids for the aroa of Heidelberg were acquired from `h3pandas` @dahn_h3pandas_2023. For these cells population density data was acquired from the Global Human Settlement (GHS) project @schiavina_ghs-pop_2023.
 
 
-  == Processing 
+  == Processing <method_processing>
     With all this data it becomes possible to calculate travel time matrices for multimodal public transport journeys with `r5py`. The general flow of data as described in @processing_chart, was primarily contained within a `python` application running in a `docker` container, that could run on a linux server. The only exceptions were the supply of a suitable GTFS schedule dataset, and the supply of the right tiles from the GHS layer dataset.
 
     The large DELFI GTFS dataset was cropped to the general area of Heidelberg to reduce computational overhead for the travel time matrix routing. For this, I used the `gtfs-general` command line tool @psotta_michaelsjpgtfs-general_2024. Similarly osm `.pbf` files acquired from geofabrik were, this time automatically, cropped using `osmosis` @openstreetmap_osmosis_2023 if they were larger than a filesize limit based on the locally available computing power.
 
-    Both the OSM data and the gtfs data then were supplied as properties to the `r5py` class `TransitNetwork`. A departure date was automatically chosen then out of the `r5py TransitNetwork` automatically based on a few heuristics, to pick an arbitray non-special weekday. The date arrived at by this process was /* TODO insert date*/. For this date a departure time was chosen for each hour with a departure time window of 60 minutes, as such covering the entire day. Routing modes were set to walking and public transit to capture a common use case of public transit use, where transit users walk to the first stop of their itinerary, and walk from the last transit stop of their itinerary to their destination.
+    Both the OSM data and the gtfs data then were supplied as properties to the `r5py` class `TransitNetwork`. A departure date was automatically chosen then out of the `r5py TransitNetwork` automatically based on a few heuristics, to pick an arbitray non-special weekday. For this date a departure time was chosen for each hour with a departure time window of 60 minutes, as such covering the entire day. Routing modes were set to walking and public transit to capture a common use case of public transit use, where transit users walk to the first stop of their itinerary, and walk from the last transit stop of their itinerary to their destination.
      
     #figure(
       box(
