@@ -37,7 +37,6 @@
 #include "chapters/08_conclusion.typ"
 #pagebreak()
 
-// TODO Appendices
 
 #set heading(supplement: "Appendix",depth:2, numbering: "A.1",)
 #show heading.where(level: 1): it => [
