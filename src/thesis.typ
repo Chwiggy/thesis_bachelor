@@ -4,8 +4,7 @@
   title: "Simple Open Data Measures of Public Transit Service Availability",
   subtitle: "Planning and Temporal Variability",
   authors: (
-    // TODO add matr number and postal address as secrets
-    (name: "Emily C. Wilke",matr: "35xxxxxxxx", email: "emilycwilke@gmail.com", affiliation: "Ruprecht-Karls-Universität Heidelberg", postal: "xxxxxxx"),
+    (name: "Emily C. Wilke",matr: "Matrikel_Nr: 3652850", email: "emilycwilke@gmail.com", affiliation: "Geographisches Institut, Ruprecht-Karls-Universität Heidelberg", betreuer: "Betreuer: Prof. A. Zipf, Prof. apl. S. Lautenbach"),
   ),
   date: [#datetime.today().display()],
 )

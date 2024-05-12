@@ -66,7 +66,7 @@
         #author.matr \
         #author.email \
         #author.affiliation \
-        #author.postal
+        #author.betreuer
       ]),
     ),
   )
